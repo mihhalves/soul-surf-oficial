@@ -174,6 +174,41 @@ function setupNavbar() {
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
+  const navLinks = document.querySelector('#navbar .nav-links');
+  const navCta = document.querySelector('#navbar .nav-cta');
+
+  // Defensive mobile fallback: guarantees correct navbar rendering even with stale CSS cache.
+  function syncResponsiveNavbar() {
+    const isMobile = window.matchMedia('(max-width: 1280px)').matches;
+
+    if (isMobile) {
+      if (navLinks) navLinks.style.display = 'none';
+      if (navCta) navCta.style.display = 'none';
+      hamburger.style.display = 'flex';
+      hamburger.style.width = '42px';
+      hamburger.style.height = '42px';
+      hamburger.style.padding = '8px';
+      hamburger.style.flexShrink = '0';
+      if (!hamburger.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    } else {
+      if (navLinks) navLinks.style.display = '';
+      if (navCta) navCta.style.display = '';
+      hamburger.style.display = '';
+      hamburger.style.width = '';
+      hamburger.style.height = '';
+      hamburger.style.padding = '';
+      hamburger.style.flexShrink = '';
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  syncResponsiveNavbar();
+  window.addEventListener('resize', syncResponsiveNavbar);
 
   // Scroll effect
   window.addEventListener('scroll', () => {
