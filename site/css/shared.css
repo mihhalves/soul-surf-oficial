@@ -368,13 +368,16 @@ h1, h2, h3 { font-family: 'Glegoo', serif; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 @media (max-width: 1280px) {
-  .nav-links, .nav-cta { display: none; }
-  .hamburger { display: flex; }
+  #navbar .nav-links,
+  #navbar .nav-cta { display: none !important; }
+  #navbar .hamburger { display: flex !important; }
   .mobile-menu {
-    display: block;
+    display: none;
     top: calc(64px + env(safe-area-inset-top));
     padding-bottom: calc(28px + env(safe-area-inset-bottom));
   }
+  .mobile-menu.open { display: flex; }
+  .cta-floating { display: none !important; }
   .nav-inner { height: 64px; gap: 10px; }
   .nav-logo {
     flex: 1;
