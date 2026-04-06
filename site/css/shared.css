@@ -384,11 +384,17 @@ h1, h2, h3 { font-family: 'Glegoo', serif; }
   }
   .mobile-menu.open { display: flex; }
   .cta-floating { display: none !important; }
-  .nav-inner { height: 64px; gap: 10px; }
+  .nav-inner {
+    height: 64px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .nav-logo {
-    flex: 1;
+    flex: 1 1 auto;
     min-width: 0;
-    max-width: calc(100% - 54px);
+    max-width: calc(100% - 62px);
     gap: 10px;
   }
   .nav-logo-icon { width: 40px; height: 40px; border-radius: 11px; }
@@ -401,7 +407,7 @@ h1, h2, h3 { font-family: 'Glegoo', serif; }
     text-overflow: ellipsis;
   }
   .nav-logo-text span { display: none; }
-  .hamburger { flex-shrink: 0; margin-left: 4px; }
+  .hamburger { flex-shrink: 0; margin-left: auto; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { gap: 14px; }
   .footer-legal { gap: 6px; }
