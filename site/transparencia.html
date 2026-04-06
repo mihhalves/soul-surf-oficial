@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Transparência — Projeto Soul Surf. Documentos institucionais, relatórios e prestação de contas." />
+  <title>Transparência | Soul Surf</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shared.css" />
+
+  <style>
+    body { padding-top: 72px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Poppins', sans-serif; color: #333; background: #F7F9FB; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    h1, h2, h3 { font-family: 'Glegoo', serif; }
+
+    :root {
+      --blue: #0073A8;
+      --blue-dark: #005a84;
+      --blue-light: #1a8fc0;
+      --green: #4D917B;
+      --gold: #F5A623;
+      --white: #fff;
+      --text: #333333;
+      --text-light: #666666;
+      --bg-light: #F7F9FB;
+      --bg-dark: #0a1628;
+      --bg-navy: #051223;
+      --border: #E6E6E6;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left)); padding-right: max(24px, env(safe-area-inset-right)); }
+
+    /* ========== NAVBAR ========== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(10,22,40,.97);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.35);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; color: #fff; }
+    .nav-logo-icon {
+      width: 44px; height: 44px; border-radius: 13px;
+      background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
+      display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
+    }
+    .nav-logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-logo-text strong { display: block; font-size: 18px; font-weight: 800; letter-spacing: .04em; line-height: 1.2; }
+    .nav-logo-text span { font-size: 11px; color: rgba(255,255,255,.55); letter-spacing: .12em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a {
+      color: rgba(255,255,255,.75); font-size: 14px; font-weight: 500;
+      transition: color .2s; position: relative; padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--blue); transition: width .3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: #fff; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all .3s; }
+
+    .mobile-menu {
+      display: none; position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(10,22,40,.98); backdrop-filter: blur(14px);
+      padding: 20px 24px 28px; z-index: 999;
+      transform: translateY(-110%); opacity: 0; transition: all .35s ease;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; }
+    .mobile-menu a { display: block; color: rgba(255,255,255,.8); font-size: 16px; font-weight: 500; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); transition: color .2s; }
+    .mobile-menu a:last-child { border: none; color: var(--blue); font-weight: 700; margin-top: 8px; }
+    .mobile-menu a:hover { color: #fff; }
+
+    /* ========== PAGE HERO ========== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #00395e 60%, var(--bg-dark) 100%);
+      padding: 136px 0 72px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: -30%; right: -5%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: rgba(0,115,168,.1); pointer-events: none;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; bottom: -20%; left: -8%;
+      width: 380px; height: 380px; border-radius: 50%;
+      background: rgba(77,145,123,.07); pointer-events: none;
+    }
+    .page-hero-content { position: relative; z-index: 2; }
+    .page-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
+      border-radius: 50px; padding: 7px 18px;
+      color: rgba(255,255,255,.88); font-size: 12px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 22px;
+    }
+    .page-hero h1 { font-size: clamp(36px, 5vw, 64px); color: #fff; line-height: 1.1; margin-bottom: 18px; }
+    .page-hero h1 em { color: var(--blue); font-style: normal; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.65); line-height: 1.75; max-width: 560px; }
+
+    /* ========== MAIN CONTENT ========== */
+    main { padding: 72px 0 100px; }
+
+    /* ========== SECTION TITLE ========== */
+    .section-label {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 10px;
+    }
+    .section-title { font-size: clamp(24px, 3vw, 36px); color: var(--bg-dark); margin-bottom: 8px; }
+    .section-desc { font-size: 15px; color: var(--text-light); line-height: 1.7; max-width: 560px; margin-bottom: 40px; }
+
+    /* ========== DOCS GRID ========== */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    @media (min-width: 1024px) {
+      .docs-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .doc-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: transform .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp .6s ease forwards;
+    }
+    .doc-card:nth-child(1) { animation-delay: .1s; }
+    .doc-card:nth-child(2) { animation-delay: .2s; }
+    .doc-card:nth-child(3) { animation-delay: .3s; }
+    .doc-card:nth-child(4) { animation-delay: .4s; }
+    .doc-card:nth-child(5) { animation-delay: .5s; }
+    .doc-card:nth-child(6) { animation-delay: .6s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .doc-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--blue); transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .doc-card:hover::before { transform: scaleX(1); }
+    .doc-card:hover { transform: translateY(-6px); box-shadow: 0 20px 52px rgba(0,0,0,.10); }
+
+    .doc-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: rgba(0,115,168,.08); border: 1px solid rgba(0,115,168,.15);
+      display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;
+    }
+    .doc-icon.green { background: rgba(77,145,123,.08); border-color: rgba(77,145,123,.15); }
+    .doc-icon.gold  { background: rgba(245,166,35,.08); border-color: rgba(245,166,35,.15); }
+
+    .doc-info { flex: 1; }
+    .doc-tag {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--blue);
+      background: rgba(0,115,168,.08); border-radius: 50px; padding: 3px 10px; margin-bottom: 8px;
+    }
+    .doc-tag.green { color: var(--green); background: rgba(77,145,123,.08); }
+    .doc-tag.gold  { color: #c07800; background: rgba(245,166,35,.12); }
+
+    .doc-info h3 { font-size: 18px; color: var(--bg-dark); margin-bottom: 6px; }
+    .doc-info p  { font-size: 13px; color: var(--text-light); line-height: 1.65; }
+
+    .doc-actions {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;
+    }
+    .doc-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 50px;
+      transition: all .25s; cursor: pointer; border: none; text-decoration: none;
+    }
+    .doc-btn-primary { background: var(--blue); color: #fff; }
+    .doc-btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,115,168,.35); }
+    .doc-btn-ghost { background: transparent; color: var(--blue); border: 1.5px solid rgba(0,115,168,.3); }
+    .doc-btn-ghost:hover { border-color: var(--blue); background: rgba(0,115,168,.06); }
+
+    .doc-viewer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5,18,35,.82);
+      backdrop-filter: blur(4px);
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+    }
+    .doc-viewer-overlay.open { display: flex; }
+    .doc-viewer-modal {
+      width: min(1120px, 100%);
+      height: min(86vh, 760px);
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 72px rgba(0,0,0,.4);
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex;
+      flex-direction: column;
+    }
+    .doc-viewer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      background: #f8fbfe;
+      flex-shrink: 0;
+    }
+    .doc-viewer-header h3 {
+      font-size: 15px;
+      color: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .doc-viewer-close {
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 22px;
+      line-height: 1;
+      color: #5a7084;
+      background: #eaf2f8;
+      cursor: pointer;
+    }
+    .doc-viewer-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    /* ========== INFO STRIP ========== */
+    .info-strip {
+      background: linear-gradient(135deg, var(--blue) 0%, #004e74 100%);
+      border-radius: 20px; padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+    .info-strip-text h3 { font-size: 22px; color: #fff; margin-bottom: 8px; }
+    .info-strip-text p  { font-size: 15px; color: rgba(255,255,255,.72); line-height: 1.65; max-width: 520px; }
+    .info-strip .btn {
+      font-size: 14px;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    /* ========== DIVIDER ========== */
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 64px 0; }
+
+    /* ========== FOOTER ========== */
+    #footer { background: var(--bg-navy); border-top: 1px solid rgba(255,255,255,.06); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer-brand p { margin-top: 18px; font-size: 14px; color: rgba(255,255,255,.4); line-height: 1.72; max-width: 290px; }
+    .footer-col h4 { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col li a { color: rgba(255,255,255,.42); font-size: 14px; transition: color .2s; }
+    .footer-col li a:hover { color: #fff; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-bottom p { color: rgba(255,255,255,.28); font-size: 13px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.45); transition: all .25s;
+    }
+    .footer-social a:hover { background: var(--blue); color: #fff; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      .page-hero { padding: 120px 0 56px; }
+      .info-strip { padding: 32px 24px; flex-direction: column; }
+      .doc-viewer-modal { height: min(90vh, 760px); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .docs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero" aria-label="Cabeçalho da página de transparência">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-badge">Construindo Confiança Juntos</div>
+      <h1>Transparência <em>Total</em></h1>
+      <p>Acreditamos que a confiança se constrói com informação. Aqui você encontra todos os documentos institucionais, relatórios e comprovantes do Projeto Soul Surf.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<main>
+  <div class="container">
+
+    <span class="section-label">Documentos</span>
+    <h2 class="section-title">Visualize os arquivos disponíveis</h2>
+    <p class="section-desc">Clique em “Visualizar” para abrir o documento no leitor interno da página.</p>
+
+    <div class="docs-grid">
+      <article class="doc-card"><div ></div><div class="doc-info"><span class="doc-tag gold">PDF</span><h3>Ata de Eleição</h3><p>Registro oficial da eleição e composição da diretoria.</p></div><div class="doc-actions"><button class="doc-btn doc-btn-primary" data-doc="./documentos/Ata%20de%20Elei%C3%A7%C3%A3o.pdf" data-title="Ata de Eleição">Visualizar</button></div></article>
+      <article class="doc-card"><div ></div><div class="doc-info"><span class="doc-tag">PDF</span><h3>CMDCA</h3><p>Documento relacionado ao conselho municipal dos direitos da criança e adolescente.</p></div><div class="doc-actions"><button class="doc-btn doc-btn-primary" data-doc="./documentos/CMDCA.pdf" data-title="CMDCA">Visualizar</button></div></article>
+      <article class="doc-card"><div ></div><div class="doc-info"><span class="doc-tag">PDF</span><h3>CNPJ (PDF)</h3><p>Comprovante de cadastro no Cadastro Nacional de Pessoas Jurídicas.</p></div><div class="doc-actions"><button class="doc-btn doc-btn-primary" data-doc="./documentos/CNPJ.pdf" data-title="CNPJ (PDF)">Visualizar</button></div></article>
+      <article class="doc-card"><div ></div><div class="doc-info"><span class="doc-tag green">PDF</span><h3>Declaração Balancete 2025</h3><p>Declaração financeira e balancete referente ao período de 2025.</p></div><div class="doc-actions"><button class="doc-btn doc-btn-primary" data-doc="./documentos/Declaracao_Balancete_2025.pdf" data-title="Declaração Balancete 2025">Visualizar</button></div></article>
+
+      <article class="doc-card"><div ></div><div class="doc-info"><span class="doc-tag green">PDF</span><h3>Estatuto (PDF)</h3><p>Estatuto social da associação em versão PDF.</p></div><div class="doc-actions"><button class="doc-btn doc-btn-primary" data-doc="./documentos/Estatuto.pdf" data-title="Estatuto (PDF)">Visualizar</button></div></article>
+    </div>
+
+    <!-- INFO STRIP -->
+    <div class="info-strip">
+      <div class="info-strip-text">
+        <h3>Dúvidas ou Solicitações?</h3>
+        <p>Caso precise de algum documento específico ou tenha dúvidas sobre nossa gestão, entre em contato pelo Whatsapp ou pelo e-mail do projeto. Somos 100% transparentes.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://api.whatsapp.com/send/?phone=%2B5511930003945&text&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-white">Nosso Whatsapp</a>
+        <a href="mailto:projetosoulsurf.contato@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-white">E-mail do Projeto</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div class="doc-viewer-overlay" id="docViewerOverlay" aria-hidden="true">
+  <div class="doc-viewer-modal" role="dialog" aria-modal="true" aria-labelledby="docViewerTitle">
+    <div class="doc-viewer-header">
+      <h3 id="docViewerTitle">Visualização de documento</h3>
+      <button class="doc-viewer-close" id="docViewerClose" aria-label="Fechar visualização">×</button>
+    </div>
+    <iframe id="docViewerFrame" class="doc-viewer-frame" title="Visualizador de documento" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+</div>
+
+<script type="module" src="js/shared.js"></script>
+<script>
+  (function () {
+    const overlay = document.getElementById('docViewerOverlay');
+    const frame = document.getElementById('docViewerFrame');
+    const title = document.getElementById('docViewerTitle');
+    const closeBtn = document.getElementById('docViewerClose');
+
+    function toViewerSrc(path) {
+      if (path.toLowerCase().endsWith('.pdf')) {
+        return `${path}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`;
+      }
+      return path;
+    }
+
+    function openViewer(path, docTitle) {
+      title.textContent = docTitle || 'Visualização de documento';
+      frame.src = toViewerSrc(path);
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeViewer() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      frame.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-doc]').forEach((btn) => {
+      btn.addEventListener('click', () => openViewer(btn.dataset.doc, btn.dataset.title));
+    });
+
+    closeBtn.addEventListener('click', closeViewer);
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) closeViewer();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && overlay.classList.contains('open')) closeViewer();
+    });
+  })();
+</script>
+</body>
+</html>

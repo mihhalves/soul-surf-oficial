@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="description" content="Projeto Social Soul Surf — Transformando vidas de crianças e adolescentes em vulnerabilidade social através do surf em Itanhaém/SP. Do mar pra vida." />
+  <meta name="keywords" content="projeto social surf, soul surf, itanhaém, inclusão social, surf crianças, ONG surf, associação surf cibratel" />
+  <meta property="og:title" content="Projeto Soul Surf — Do Mar Pra Vida" />
+  <meta property="og:description" content="Usando o surf como ferramenta de inclusão social e transformação de vidas desde 2021." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0073A8" />
+  <title>Projeto Soul Surf — Do Mar Pra Vida</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="preload" as="image" href="./fotos/IMG_4165.JPG" fetchpriority="high" />
+  <link rel="stylesheet" href="css/shared.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* ========== HERO ========== */
+    #hero {
+      position: relative; min-height: 100svh; min-height: 100dvh;
+      display: flex; align-items: center; overflow: hidden;
+      background: var(--bg-dark);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      will-change: transform;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover; object-position: center center;
+      transform: scale(1.02);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      z-index: 1;
+      background: linear-gradient(135deg, rgba(5,18,35,.93) 0%, rgba(0,50,90,.72) 52%, rgba(5,18,35,.58) 100%);
+    }
+    .hero-content { position: relative; z-index: 10; max-width: 800px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
+      border-radius: 50px; padding: 8px 20px;
+      color: rgba(255,255,255,.88); font-size: 13px; font-weight: 500;
+      letter-spacing: .06em; margin-bottom: 26px; opacity: 0;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blue); animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .55; transform: scale(1.4); }
+    }
+    .hero-title {
+      font-size: clamp(52px, 8.5vw, 100px); font-weight: 700;
+      color: #fff; line-height: 1.0; letter-spacing: -.02em;
+      margin-bottom: 22px; clip-path: inset(0 100% 0 0);
+    }
+    .hero-subtitle {
+      font-size: clamp(17px, 2.2vw, 22px); color: rgba(255,255,255,.82);
+      font-weight: 400; line-height: 1.55; margin-bottom: 14px;
+      opacity: 0; transform: translateY(22px);
+    }
+    .hero-desc {
+      font-size: 16px; color: rgba(255,255,255,.62); line-height: 1.85;
+      max-width: 580px; margin-bottom: 42px;
+      opacity: 0; transform: translateY(22px);
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; transform: translateY(22px); }
+    .hero-wave { position: absolute; bottom: -2px; left: 0; right: 0; z-index: 5; }
+    .scroll-hint {
+      position: absolute; bottom: 88px; right: 42px; z-index: 10;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.4); font-size: 10px; letter-spacing: .18em;
+      text-transform: uppercase; opacity: 0;
+    }
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.45), transparent);
+      animation: linePulse 2s infinite;
+    }
+    @keyframes linePulse {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ========== STATS ========== */
+    #stats {
+      background: var(--bg-dark); padding: 64px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .stat-item {
+      padding: 44px 28px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.07);
+      opacity: 0; transform: translateY(32px);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Glegoo', serif;
+      font-size: clamp(42px, 5vw, 68px); font-weight: 700;
+      color: #fff; line-height: 1; margin-bottom: 10px;
+    }
+    .stat-number em { color: var(--blue); font-style: normal; }
+    .stat-label { color: rgba(255,255,255,.45); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
+    /* ========== ABOUT ========== */
+    #about { padding: 108px 0; background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-text h2 { font-size: clamp(30px, 3.8vw, 50px); line-height: 1.2; color: var(--bg-dark); margin-bottom: 24px; }
+    .about-text blockquote {
+      border-left: 3px solid var(--blue); padding-left: 20px;
+      font-style: italic; color: var(--text-light); font-size: 17px; line-height: 1.65; margin-bottom: 26px;
+    }
+    .about-text p { font-size: 16px; line-height: 1.88; color: var(--text-light); margin-bottom: 20px; }
+    .about-text p strong { color: var(--text); }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; height: 520px; object-fit: cover; border-radius: 24px; }
+    .about-badge {
+      position: absolute; bottom: 32px; left: -24px;
+      background: var(--blue); color: #fff;
+      padding: 20px 28px; border-radius: 16px;
+      box-shadow: 0 16px 48px rgba(0,115,168,.4);
+    }
+    .about-badge strong { display: block; font-size: 30px; font-weight: 800; }
+    .about-badge span { font-size: 12px; color: rgba(255,255,255,.8); line-height: 1.4; }
+
+    /* ========== SECTION HEADER ========== */
+    .section-header { margin-bottom: 56px; }
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .section-header h2 { font-size: clamp(28px, 3.8vw, 46px); color: var(--bg-dark); line-height: 1.2; margin-bottom: 14px; }
+    .section-header p { font-size: 17px; color: var(--text-light); line-height: 1.7; max-width: 600px; }
+
+    /* ========== PROJECTS ========== */
+    #projects { padding: 108px 0; background: var(--bg-light); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .project-card {
+      background: #fff; border-radius: 24px; overflow: hidden;
+      box-shadow: 0 2px 18px rgba(0,0,0,.06);
+      transition: transform .3s, box-shadow .3s;
+      opacity: 0; transform: translateY(44px);
+    }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 24px 64px rgba(0,0,0,.13); }
+    .project-card-img { width: 100%; height: 240px; object-fit: cover; transition: transform .5s; }
+    .project-card:hover .project-card-img { transform: scale(1.05); }
+    .project-card-body { padding: 28px; }
+    .project-card-tag {
+      display: inline-block; background: rgba(0,115,168,.1); color: var(--blue);
+      font-size: 11px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 12px;
+    }
+    .project-card-body h3 { font-size: 22px; color: var(--bg-dark); margin-bottom: 10px; }
+    .project-card-body p { font-size: 15px; color: var(--text-light); line-height: 1.72; }
+
+    /* ========== CAMPANHA ========== */
+    #water {
+      padding: 88px 0;
+      background: linear-gradient(135deg, var(--blue) 0%, #004e74 100%);
+      position: relative; overflow: hidden;
+    }
+    #water::before {
+      content: ''; position: absolute; top: -40%; right: -8%;
+      width: 560px; height: 560px; border-radius: 50%;
+      background: rgba(255,255,255,.05); pointer-events: none;
+    }
+    .water-grid { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 80px; align-items: center; }
+    .water-text .badge-water {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50px; padding: 6px 16px; color: #fff;
+      font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .water-text h2 { font-size: clamp(28px, 3.5vw, 46px); color: #fff; line-height: 1.2; margin-bottom: 18px; }
+    .water-text p { font-size: 16px; color: rgba(255,255,255,.82); line-height: 1.82; margin-bottom: 36px; }
+    .water-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .water-img img { width: 100%; height: 360px; object-fit: cover; border-radius: 24px; }
+
+    /* ESTILO DO CARROSSEL */
+    .carousel-container { overflow: hidden; position: relative; }
+    .carousel-slides { display: flex; width: 400%; transition: transform 0.8s ease-in-out; }
+    .slide { width: 25%; flex-shrink: 0; }
+
+    /* ========== VIDEO ========== */
+    #video-section { padding: 88px 0; background: var(--bg-light); }
+    .video-header { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+    .video-wrapper {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,.14);
+    }
+    .video-aspect { position: relative; padding-bottom: 56.25%; height: 0; }
+    .video-aspect iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* ========== GALERIA ========== */
+    #gallery { padding: 100px 0; background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 220px;
+      opacity: 0;
+      transform: translateY(30px);
+      box-shadow: 0 8px 26px rgba(0,0,0,.08);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: zoom-in;
+      transition: transform .45s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(5,18,35,.65) 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item span {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: all .3s ease;
+    }
+    .gallery-item:hover span { opacity: 1; transform: translateY(0); }
+    .gallery-item.wide { grid-column: span 6; }
+    .gallery-item.tall { grid-column: span 3; min-height: 460px; }
+    .gallery-item.square { grid-column: span 3; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(5,18,35,.88);
+      z-index: 1200;
+    }
+    .lightbox.show { display: flex; }
+    .lightbox img {
+      max-width: min(1200px, 94vw);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 24px 72px rgba(0,0,0,.45);
+      object-fit: contain;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      background: rgba(0,0,0,.28);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-nav:hover { background: rgba(0,0,0,.5); }
+    .lightbox-nav.prev { left: 18px; }
+    .lightbox-nav.next { right: 18px; }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      background: rgba(0,0,0,.28);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .lightbox-close:hover { background: rgba(0,0,0,.5); }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+      letter-spacing: .08em;
+      background: rgba(0,0,0,.32);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+
+    /* ========== PATROCINADORES ========== */
+    #sponsors { padding: 92px 0; background: #fff; }
+    .sponsors-header { margin-bottom: 30px; }
+    .sponsors-header p { max-width: 680px; }
+    .sponsors-carousel {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+    .sponsors-track {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      width: max-content;
+      animation: sponsorsScroll 22s linear infinite;
+    }
+    .sponsors-carousel:hover .sponsors-track { animation-play-state: paused; }
+    .sponsor-item {
+      width: clamp(150px, 17vw, 220px);
+      height: 92px;
+      background: linear-gradient(135deg, #ffffff 0%, #f2f8ff 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.05);
+      flex-shrink: 0;
+    }
+    .sponsor-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
+      transition: transform .25s ease;
+    }
+    .sponsor-item:hover img {
+      transform: scale(1.04);
+    }
+    @keyframes sponsorsScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ========== BLOG ========== */
+    #blog { padding: 100px 0; background: var(--bg-light); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .blog-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(0,0,0,.12);
+    }
+    .blog-thumb {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+    .blog-content { padding: 22px; }
+    .blog-meta {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .blog-content h3 {
+      font-size: 24px;
+      line-height: 1.25;
+      color: var(--bg-dark);
+      margin-bottom: 10px;
+    }
+    .blog-content p {
+      font-size: 15px;
+      line-height: 1.72;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+    .blog-link {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue-dark);
+    }
+    .blog-link:hover { color: var(--blue); }
+
+    /* ========== CTA FINAL ========== */
+    #cta {
+      padding: 128px 0; background: var(--bg-navy);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 900px; height: 420px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(0,115,168,.22) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 2; }
+    .cta-content h2 { font-size: clamp(32px, 5.5vw, 68px); color: #fff; line-height: 1.15; margin-bottom: 22px; }
+    .cta-content h2 em { color: var(--blue); font-style: normal; }
+    .cta-content p { font-size: 18px; color: rgba(255,255,255,.55); max-width: 540px; margin: 0 auto 52px; line-height: 1.72; }
+    .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ========== RESPONSIVIDADE ========== */
+    @media (max-width: 1024px) {
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 52px; }
+      .about-img-wrap img { height: 380px; }
+      .about-badge { left: 16px; }
+      .water-grid { grid-template-columns: 1fr; gap: 52px; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.wide { grid-column: span 12; min-height: 260px; }
+      .gallery-item.tall,
+      .gallery-item.square { grid-column: span 6; min-height: 300px; }
+    }
+    @media (max-width: 768px) {
+      #hero { align-items: flex-start; }
+      .hero-content { padding-top: calc(108px + env(safe-area-inset-top)); }
+      .projects-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.wide,
+      .gallery-item.tall,
+      .gallery-item.square { grid-column: span 1; min-height: 230px; }
+      .sponsor-item { width: 150px; height: 82px; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .hero-ctas .btn,
+      .water-btns .btn,
+      .cta-btns .btn { width: min(100%, 320px); justify-content: center; }
+      .hero-title { font-size: clamp(40px, 15vw, 64px); }
+      .hero-subtitle { font-size: 16px; }
+      .hero-desc { font-size: 15px; margin-bottom: 28px; }
+      .project-card-body,
+      .blog-content { padding-left: 20px; padding-right: 20px; }
+      .scroll-hint { display: none; }
+      .about-badge { position: static; margin-top: 16px; display: inline-block; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-content { padding-top: calc(100px + env(safe-area-inset-top)); }
+      .hero-badge { display: none; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .stat-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== CTA FLUTUANTE ===== -->
+<a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank" rel="noopener noreferrer" class="cta-floating" id="ctaFloating" aria-label="Ajude a transformar vidas — Doe agora">
+  <span class="cta-floating-text">
+    <span class="cta-floating-icon">+</span>
+    <span>Ajude a Transformar Vidas</span>
+  </span>
+  <button class="cta-floating-close" id="ctaFloatingClose" onclick="event.preventDefault(); event.stopPropagation(); closeCtaFloating();" aria-label="Fechar botão de doação">X</button>
+</a>
+
+<main>
+
+  <!-- ===== SEÇÃO PRINCIPAL ===== -->
+  <section id="hero" aria-label="Apresentação do Projeto Soul Surf">
+    <div class="hero-bg" id="heroBg" aria-hidden="true">
+      <img src="./fotos/IMG_4165.JPG" alt="" fetchpriority="high" decoding="async" />
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge" id="heroBadge" aria-hidden="true">
+          <span class="hero-badge-dot"></span>
+          Esporte · Educação · Transformação Social
+        </div>
+
+        <h1 class="hero-title" id="heroTitle">DO MAR<br>PRA VIDA</h1>
+
+        <p class="hero-subtitle" id="heroSubtitle">
+          Transformando vidas de crianças e adolescentes<br>
+          em situação de vulnerabilidade através do surf
+        </p>
+
+        <p class="hero-desc" id="heroDesc">
+          Fundado em 2021 em Itanhaém/SP, o Projeto Social Soul Surf usa o esporte como
+          ferramenta de inclusão, educação e construção de um futuro melhor para jovens da nossa comunidade.
+        </p>
+
+        <div class="hero-ctas" id="heroCtas">
+          <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:16px;padding:16px 36px;">
+             Doe Agora
+          </a>
+          <a href="#about" class="btn btn-outline-light" style="font-size:16px;padding:16px 36px;">
+            Conheça o Projeto
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" id="scrollHint" aria-hidden="true">
+      <span class="scroll-line"></span>
+      <span>scroll</span>
+    </div>
+
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,56 C240,18 480,72 720,38 C960,4 1200,56 1440,26 L1440,72 L0,72 Z" fill="#0a1628"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== ESTATÍSTICAS ===== -->
+  <section id="stats" aria-label="Números de impacto do projeto">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="200">0</span><em>+</em></div>
+          <div class="stat-label">Jovens Impactados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="4">0</span></div>
+          <div class="stat-label">Anos de Projeto</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="3">0</span></div>
+          <div class="stat-label">Frentes de Atuação</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="100">0</span><em>%</em></div>
+          <div class="stat-label">Impacto Social Real</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <span class="section-label">Uma onda de solidariedade</span>
+          <h2 id="about-heading">Esporte que acolhe, educa e transforma</h2>
+          <blockquote>
+            "A melhor maneira de se encontrar é se perder no serviço aos outros." — Mahatma Gandhi
+          </blockquote>
+          <p>
+            Fundada em setembro de 2021, em Itanhaém/SP, a <strong>Associação de Surf Cibratel –
+            Projeto Social Soul Surf</strong> é uma organização sem fins lucrativos que utiliza o
+            surf como ferramenta de inclusão social e transformação de vidas.
+          </p>
+          <p>
+            Nosso foco é o desenvolvimento integral de crianças e adolescentes em situação de
+            vulnerabilidade, combinando esporte, educação e valores como disciplina, respeito e
+            superação.
+          </p>
+          <a href="iniciativas.html" class="btn btn-primary" style="margin-top:8px;">Ver Nossas Iniciativas</a>
+        </div>
+
+        <div class="about-img-wrap reveal-right">
+          <img
+            src="./fotos/Evento%20Soul%20Surf%20Voo-104.jpg"
+            alt="Jovens praticando surf no projeto Soul Surf em Itanhaém/SP"
+            loading="lazy"
+          />
+          <div class="about-badge">
+            <strong>2021</strong>
+            <span>Fundado em<br>Itanhaém/SP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJETOS ===== -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Nossas Iniciativas</span>
+        <h2 id="projects-heading">Projetos que estão mudando vidas</h2>
+        <p>Conheça as frentes de atuação que conectam o surf à transformação social dentro e fora d'água.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <img class="project-card-img" loading="lazy"
+            src="./fotos/IMG_4146.JPG"
+            alt="Crianças e adolescentes praticando surf — Surf e Inclusão" />
+          <div class="project-card-body">
+            <span class="project-card-tag">Esporte</span>
+            <h3>Do Morro Pro Mar</h3>
+            <p>Nossa principal iniciativa de inclusão social através do surf. Levamos crianças e adolescentes de bairros distantes para aprender e praticar o esporte em um ambiente seguro e acolhedor.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-card-img" loading="lazy"
+            src="./fotos/IMG_4449.JPG"
+            alt="Crianças e adolescentes em aula de tecnologia no Soul Surf Digitais" />
+          <div class="project-card-body">
+            <span class="project-card-tag">Educação Digital</span>
+            <h3>Soul Surf Digitais</h3>
+            <p>Preparamos crianças e adolescentes para o futuro através da tecnologia. Oferecemos cursos de informática básica, programação e habilidades digitais essenciais para o mercado de trabalho.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-card-img" loading="lazy"
+            src="./fotos/Evento%20Soul%20Surf%20Voo-104.jpg"
+            alt="Ação de consciência ambiental na praia — Cultura e Meio Ambiente" />
+          <div class="project-card-body">
+            <span class="project-card-tag">Meio Ambiente</span>
+            <h3>Cultura e Meio Ambiente</h3>
+            <p>Formação cidadã com ações culturais e consciência ambiental ligadas ao oceano. Nossos alunos aprendem a respeitar a natureza e se tornam agentes de mudança em suas comunidades.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALERIA ===== -->
+  <section id="gallery" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Galeria Soul Surf</span>
+        <h2 id="gallery-heading">Momentos que contam nossa história</h2>
+        <p>Uma seleção visual da energia do projeto, com treinos, eventos e conquistas da nossa comunidade.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item wide">
+          <img src="./fotos/1.jpeg" alt="Turma do projeto reunida na praia para atividade de surf" loading="lazy" />
+          <span>Treino Coletivo</span>
+        </figure>
+        <figure class="gallery-item tall">
+          <img src="./fotos/2.jpeg" alt="Vista do mar em dia de aula de surf social" loading="lazy" />
+          <span>Oceano Escola</span>
+        </figure>
+        <figure class="gallery-item square">
+          <img src="./fotos/3.jpeg" alt="Crianças aprendendo técnicas de surf na areia" loading="lazy" />
+          <span>Primeiras Ondas</span>
+        </figure>
+        <figure class="gallery-item square">
+          <img src="./fotos/4.jpeg" alt="Jovens praticando equilíbrio com prancha no projeto" loading="lazy" />
+          <span>Disciplina e Respeito</span>
+        </figure>
+        <figure class="gallery-item wide">
+          <img src="./fotos/5.jpeg" alt="Encerramento de atividade ao pôr do sol na praia" loading="lazy" />
+          <span>Do Mar Pra Vida</span>
+        </figure>
+        <figure class="gallery-item square">
+          <img src="./fotos/6.jpeg" alt="Atividade do projeto Soul Surf na praia" loading="lazy" />
+          <span>Do Mar Pra Vida</span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PATROCINADORES ===== -->
+  <section id="sponsors" aria-labelledby="sponsors-heading">
+    <div class="container">
+      <div class="section-header sponsors-header">
+        <span class="section-label">Patrocinadores</span>
+        <h2 id="sponsors-heading">Empresas que fortalecem essa onda</h2>
+        <p>Marcas e instituições que acreditam no impacto social do Soul Surf e ajudam a ampliar nosso alcance.</p>
+      </div>
+
+      <div class="sponsors-carousel" aria-label="Carrossel de patrocinadores do Soul Surf">
+        <div class="sponsors-track">
+          <div class="sponsor-item"><img src="./fotos/bmw.png" alt="BMW" loading="lazy" /></div>
+          <div class="sponsor-item"><img src="./fotos/governo.jpg" alt="Governo" loading="lazy" /></div>
+          <div class="sponsor-item"><img src="./fotos/itau.png" alt="Itaú" loading="lazy" /></div>
+          <div class="sponsor-item"><img src="./fotos/vale.png" alt="Vale" loading="lazy" /></div>
+
+          <div class="sponsor-item"><img src="./fotos/bmw.png" alt="BMW" loading="lazy" /></div>
+          <div class="sponsor-item"><img src="./fotos/governo.jpg" alt="Governo" loading="lazy" /></div>
+          <div class="sponsor-item"><img src="./fotos/itau.png" alt="Itaú" loading="lazy" /></div>
+          <div class="sponsor-item"><img src="./fotos/vale.png" alt="Vale" loading="lazy" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAMPANHAS ===== -->
+  <section id="water" aria-labelledby="water-heading">
+    <div class="container">
+      <div class="carousel-container">
+        <div class="carousel-slides" id="carouselSlides">
+          <!-- Slide 1: Água -->
+          <div class="slide active">
+            <div class="water-grid">
+              <div class="water-text reveal-left">
+                <span class="badge-water">Campanha Urgente</span>
+                <h2 id="water-heading">Precisamos de água doce também</h2>
+                <p>Ajude a instalar um poço artesiano e garantir um banho digno para as crianças depois do surf. Uma atitude simples com impacto enorme na dignidade e saúde de cada jovem. Com sua ajuda, a água chega!</p>
+                <div class="water-btns">
+                  <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank" rel="noopener noreferrer" class="btn btn-white">
+                    Quero Ajudar
+                  </a>
+                  <a href="#cta" class="btn btn-outline-light">Saiba Mais</a>
+                </div>
+              </div>
+              <div class="water-img reveal-right">
+                <img loading="lazy" src="./fotos/491803886_10233882011684977_8940823745485622745_n.jpg" alt="Crianças com prancha de surf na praia após treino" />
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2: Equipamentos -->
+          <div class="slide">
+            <div class="water-grid">
+              <div class="water-text reveal-left">
+                <span class="badge-water">Equipamentos</span>
+                <h2>Pranchas e acessórios para todos</h2>
+                <p>Precisamos de pranchas de surf, coletes salva-vidas e equipamentos de segurança para expandir nossas aulas. Cada doação permite que mais jovens entrem no mar e descubram o poder transformador do surf.</p>
+                <div class="water-btns">
+                  <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank" rel="noopener noreferrer" class="btn btn-white">
+                    Doe Equipamentos
+                  </a>
+                  <a href="#cta" class="btn btn-outline-light">Saiba Mais</a>
+                </div>
+              </div>
+              <div class="water-img reveal-right">
+                <img loading="lazy" src="./fotos/IMG_4146.JPG" alt="Crianças aprendendo técnicas de surf na areia" />
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3: Educação -->
+          <div class="slide">
+            <div class="water-grid">
+              <div class="water-text reveal-left">
+                <span class="badge-water">Educação</span>
+                <h2>Materiais escolares para o futuro</h2>
+                <p>Apoie a compra de livros, cadernos e materiais didáticos para reforçar o aprendizado dos jovens. Educação vai além do surf: preparamos nossos alunos para uma vida plena e oportunidades reais.</p>
+                <div class="water-btns">
+                  <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank" rel="noopener noreferrer" class="btn btn-white">
+                    Doe Materiais
+                  </a>
+                  <a href="#cta" class="btn btn-outline-light">Saiba Mais</a>
+                </div>
+              </div>
+              <div class="water-img reveal-right">
+                <img loading="lazy" src="./fotos/IMG_4449.JPG" alt="Jovens praticando equilíbrio com prancha no projeto" />
+              </div>
+            </div>
+          </div>
+          <!-- Slide 4: Meio Ambiente -->
+          <div class="slide">
+            <div class="water-grid">
+              <div class="water-text reveal-left">
+                <span class="badge-water">Meio Ambiente</span>
+                <h2>Preservando nossas praias</h2>
+                <p>Ajude em ações de limpeza e conscientização ambiental. Manter nossas praias limpas é essencial para a saúde do oceano e para que futuras gerações possam surfar em águas cristalinas.</p>
+                <div class="water-btns">
+                  <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank" rel="noopener noreferrer" class="btn btn-white">
+                    Doe para o Mar
+                  </a>
+                  <a href="#cta" class="btn btn-outline-light">Saiba Mais</a>
+                </div>
+              </div>
+              <div class="water-img reveal-right">
+                <img loading="lazy" src="./fotos/Evento%20Soul%20Surf%20Voo-104.jpg" alt="Vista do mar em dia de aula de surf social" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VÍDEO ===== -->
+  <section id="video-section" aria-labelledby="video-heading">
+    <div class="container">
+      <div class="video-header">
+        <span class="section-label">Conheça o Projeto</span>
+        <h2 id="video-heading">Veja a transformação acontecer</h2>
+      </div>
+      <div class="video-wrapper reveal-scale">
+        <div class="video-aspect">
+          <iframe
+            src="https://www.youtube.com/embed/2hnO7fT-f_g"
+            title="Projeto Soul Surf — Vídeo Institucional"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ===== -->
+  <section id="blog" aria-labelledby="blog-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Blog</span>
+        <h2 id="blog-heading">Novidades e histórias do projeto</h2>
+        <p>Conteúdo para mostrar resultados, inspirar apoiadores e fortalecer o SEO orgânico do Soul Surf.</p>
+      </div>
+
+      <div class="blog-grid">
+        <!-- ARTIGO 1 -->
+        <article class="blog-card">
+          <img class="blog-thumb" src="./fotos/IMG_4589.JPG" alt="Aula inaugural de surf social com jovens" loading="lazy" />
+          <div class="blog-content">
+            <span class="blog-meta">05 Mar 2026 · Projeto</span>
+            <h3>Como foi o início da temporada 2026</h3>
+            <p>Novo calendário de aulas, integração de voluntários e metas de impacto para este ano em Itanhaém.</p>
+            <a class="blog-link" href="./artigos/artigo-1.html" aria-label="Ler artigo sobre início da temporada">Ler artigo -></a>
+          </div>
+        </article>
+
+        <!-- ARTIGO 2 -->
+        <article class="blog-card">
+          <img class="blog-thumb" src="./fotos/IMG_4449.JPG" alt="Oficina educacional com participantes do projeto" loading="lazy" />
+          <div class="blog-content">
+            <span class="blog-meta">22 Fev 2026 · Educação</span>
+            <h3>Educação que acompanha cada onda</h3>
+            <p>Além do surf: reforço de autoestima, rotina de estudos e acompanhamento de desenvolvimento dos jovens.</p>
+            <a class="blog-link" href="./artigos/artigo-2.html" aria-label="Ler artigo sobre educação e surf">Ler artigo -></a>
+          </div>
+        </article>
+
+        <!-- ARTIGO 3 -->
+        <article class="blog-card">
+          <img class="blog-thumb" src="./fotos/IMG_4654.JPG" alt="Campanha para instalação de água doce no projeto" loading="lazy" />
+          <div class="blog-content">
+            <span class="blog-meta">10 Fev 2026 · Campanha</span>
+            <h3>Campanha da água: o que já avançou</h3>
+            <p>Prestação de contas parcial da mobilização para o poço artesiano e próximos passos da campanha.</p>
+            <a class="blog-link" href="./artigos/artigo-3.html" aria-label="Ler artigo sobre a campanha da água">Ler artigo -></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHAMADA PARA AÇÃO FINAL ===== -->
+  <section id="cta" aria-labelledby="cta-heading">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-content">
+      <div class="reveal">
+        <span class="section-label" style="color:var(--blue);">Faça Parte</span>
+        <h2 id="cta-heading">
+          Sua doação transforma<br>
+          <em>vidas reais</em>
+        </h2>
+        <p>Cada contribuição garante mais aulas de surf, mais oportunidades de educação e mais esperança para jovens de Itanhaém/SP.</p>
+        <div class="cta-btns">
+          <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:17px;padding:18px 44px;">
+             Doe Agora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-label="Visualização ampliada da galeria">
+  <button class="lightbox-close" id="galleryLightboxClose" type="button" aria-label="Fechar imagem">X</button>
+  <button class="lightbox-nav prev" id="galleryLightboxPrev" type="button" aria-label="Imagem anterior">&#8249;</button>
+  <img id="galleryLightboxImage" src="" alt="" />
+  <button class="lightbox-nav next" id="galleryLightboxNext" type="button" aria-label="Próxima imagem">&#8250;</button>
+  <div class="lightbox-counter" id="galleryLightboxCounter" aria-live="polite"></div>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script type="module" src="js/shared.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // --- Hero ---
+    const heroTl = gsap.timeline({ delay: .35 });
+    heroTl
+      .to('#heroBadge', { opacity: 1, y: 0, duration: .6, ease: 'power2.out' })
+      .to('#heroTitle', { clipPath: 'inset(0 0% 0 0)', duration: 1.05, ease: 'power3.out' }, '-=.2')
+      .to('#heroSubtitle', { opacity: 1, y: 0, duration: .65, ease: 'power2.out' }, '-=.45')
+      .to('#heroDesc', { opacity: 1, y: 0, duration: .65, ease: 'power2.out' }, '-=.38')
+      .to('#heroCtas', { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=.35')
+      .to('#scrollHint', { opacity: 1, duration: .5 }, '-=.15');
+
+    // --- Paralaxe do hero ---
+    gsap.to('#heroBg', {
+      yPercent: 28, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+
+    // --- Contadores de estatísticas ---
+    document.querySelectorAll('.stat-item').forEach(item => {
+      const counter = item.querySelector('.counter');
+      const target = parseInt(counter.dataset.target, 10);
+      ScrollTrigger.create({
+        trigger: item, start: 'top 87%', once: true,
+        onEnter: () => {
+          gsap.to(item, { opacity: 1, y: 0, duration: .7, ease: 'power2.out' });
+          gsap.to({ val: 0 }, {
+            val: target, duration: 2.4, ease: 'power2.out',
+            onUpdate: function () { counter.textContent = Math.round(this.targets()[0].val); }
+          });
+        }
+      });
+    });
+
+    // --- Revelações genéricas de rolagem ---
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.to(el, { opacity: 1, y: 0, duration: .85, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+    gsap.utils.toArray('.reveal-left').forEach(el => {
+      gsap.to(el, { opacity: 1, x: 0, duration: .9, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+    gsap.utils.toArray('.reveal-right').forEach(el => {
+      gsap.to(el, { opacity: 1, x: 0, duration: .9, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+    gsap.utils.toArray('.reveal-scale').forEach(el => {
+      gsap.to(el, { opacity: 1, scale: 1, duration: .8, ease: 'back.out(1.5)',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+
+    // --- Espaçamento dos cartões de projeto ---
+    gsap.utils.toArray('.project-card').forEach((card, i) => {
+      gsap.to(card, {
+        opacity: 1, y: 0, duration: .72, delay: i * .13, ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 90%', once: true }
+      });
+    });
+
+    // --- Espaçamento dos cartões de galeria e blog ---
+    gsap.utils.toArray('.gallery-item, .blog-card').forEach((card, i) => {
+      gsap.to(card, {
+        opacity: 1, y: 0, duration: .7, delay: (i % 3) * .12, ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 90%', once: true }
+      });
+    });
+
+    // --- Fade-in da barra de navegação ---
+    gsap.from('#navbar', { opacity: 0, y: -20, duration: .8, ease: 'power2.out' });
+
+    // --- Mostrar CTA flutuante após rolagem da seção hero ---
+    ScrollTrigger.create({
+      trigger: '#stats',
+      start: 'top center',
+      onEnter: () => { showCtaFloating(); },
+      once: false
+    });
+  });
+
+  function closeMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    gsap.to(hamburger.querySelectorAll('span')[0], { rotation: 0, y: 0, duration: .28 });
+    gsap.to(hamburger.querySelectorAll('span')[1], { opacity: 1, duration: .2 });
+    gsap.to(hamburger.querySelectorAll('span')[2], { rotation: 0, y: 0, duration: .28 });
+  }
+
+  function showCtaFloating() {
+    const cta = document.getElementById('ctaFloating');
+    if (cta && !cta.classList.contains('show')) cta.classList.add('show');
+  }
+
+  function closeCtaFloating() {
+    const cta = document.getElementById('ctaFloating');
+    if (cta) cta.classList.remove('show');
+  }
+
+  // --- Lightbox da galeria ---
+  const galleryLightbox = document.getElementById('galleryLightbox');
+  const galleryLightboxImage = document.getElementById('galleryLightboxImage');
+  const galleryLightboxClose = document.getElementById('galleryLightboxClose');
+  const galleryLightboxPrev = document.getElementById('galleryLightboxPrev');
+  const galleryLightboxNext = document.getElementById('galleryLightboxNext');
+  const galleryLightboxCounter = document.getElementById('galleryLightboxCounter');
+  const galleryCards = Array.from(document.querySelectorAll('#gallery .gallery-item'));
+  const galleryImages = galleryCards.map(card => card.querySelector('img')).filter(Boolean);
+  let currentGalleryIndex = 0;
+  let touchStartX = 0;
+
+  function updateGalleryLightbox(index) {
+    if (!galleryImages.length) return;
+    currentGalleryIndex = (index + galleryImages.length) % galleryImages.length;
+    const currentImage = galleryImages[currentGalleryIndex];
+
+    galleryLightboxImage.src = currentImage.src;
+    galleryLightboxImage.alt = currentImage.alt || 'Imagem da galeria Soul Surf';
+    galleryLightboxCounter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+  }
+
+  function closeGalleryLightbox() {
+    galleryLightbox.classList.remove('show');
+    galleryLightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    galleryLightboxImage.src = '';
+    galleryLightboxImage.alt = '';
+  }
+
+  function openGalleryLightbox(index) {
+    updateGalleryLightbox(index);
+    galleryLightbox.classList.add('show');
+    galleryLightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showPrevGalleryImage() {
+    updateGalleryLightbox(currentGalleryIndex - 1);
+  }
+
+  function showNextGalleryImage() {
+    updateGalleryLightbox(currentGalleryIndex + 1);
+  }
+
+  galleryCards.forEach((card, index) => {
+    const img = card.querySelector('img');
+    if (!img) return;
+
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+
+    card.addEventListener('click', () => openGalleryLightbox(index));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openGalleryLightbox(index);
+      }
+    });
+  });
+
+  galleryLightboxClose.addEventListener('click', closeGalleryLightbox);
+  galleryLightboxPrev.addEventListener('click', showPrevGalleryImage);
+  galleryLightboxNext.addEventListener('click', showNextGalleryImage);
+  galleryLightbox.addEventListener('click', (event) => {
+    if (event.target === galleryLightbox) closeGalleryLightbox();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (!galleryLightbox.classList.contains('show')) return;
+    if (event.key === 'Escape') closeGalleryLightbox();
+    if (event.key === 'ArrowLeft') showPrevGalleryImage();
+    if (event.key === 'ArrowRight') showNextGalleryImage();
+  });
+
+  galleryLightbox.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  galleryLightbox.addEventListener('touchend', (event) => {
+    const deltaX = event.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(deltaX) < 40) return;
+    if (deltaX > 0) showPrevGalleryImage();
+    if (deltaX < 0) showNextGalleryImage();
+  }, { passive: true });
+
+  // --- Carousel auto-play ---
+  let currentSlide = 0;
+  const carouselSlides = document.getElementById('carouselSlides');
+  const totalSlides = 4;
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    carouselSlides.style.transform = `translateX(-${currentSlide * 25}%)`;
+  }, 5000); // Muda a cada 5 segundos
+</script>
+
+</body>
+</html>

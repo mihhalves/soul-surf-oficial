@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Destine até 3% do seu Imposto de Renda para apoiar crianças e adolescentes no Projeto Social Soul Surf." />
+  <meta name="theme-color" content="#0073A8" />
+  <title>Destinação de IRPF | Soul Surf</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shared.css" />
+
+  <style>
+    body { padding-top: 72px; }
+
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(10,22,40,.97);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.35);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; height: 72px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; color: #fff; }
+    .nav-logo-icon {
+      width: 44px; height: 44px; border-radius: 13px;
+      background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+    }
+    .nav-logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-logo-text strong { display: block; font-size: 18px; font-weight: 800; letter-spacing: .04em; line-height: 1.2; }
+    .nav-logo-text span { font-size: 11px; color: rgba(255,255,255,.55); letter-spacing: .12em; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a {
+      color: rgba(255,255,255,.75); font-size: 14px; font-weight: 500;
+      transition: color .2s; position: relative; padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--blue); transition: width .3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
+
+    .hero {
+      padding: 140px 0 78px;
+      background:
+        linear-gradient(135deg, rgba(5,18,35,.93) 0%, rgba(0,50,90,.72) 52%, rgba(5,18,35,.58) 100%),
+        url('./fotos/IMG_4656.JPG') center/cover no-repeat;
+      color: #fff;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
+      border-radius: 50px; padding: 8px 20px;
+      color: rgba(255,255,255,.88); font-size: 12px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 7.5vw, 88px);
+      line-height: 1.02; letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      font-size: clamp(16px, 2.2vw, 22px);
+      color: rgba(255,255,255,.84);
+      max-width: 820px;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .section-wrap { padding: 84px 0; background: var(--bg-light); }
+    .section-wrap.alt { background: #fff; }
+    .section-wrap.sand { background: linear-gradient(180deg, #fff 0%, var(--sand) 100%); }
+
+    .section-header { margin-bottom: 38px; }
+    .label {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 14px;
+    }
+    .section-header h2 {
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height: 1.14; color: var(--bg-dark); margin-bottom: 12px;
+    }
+    .section-header p {
+      font-size: 17px; color: var(--text-light); line-height: 1.75; max-width: 790px;
+    }
+
+    .content-text {
+      font-size: 17px;
+      color: var(--text-light);
+      line-height: 1.85;
+      max-width: 880px;
+    }
+    .content-text strong { color: #25394d; }
+
+    .impact-list {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .impact-list li {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      color: #41586d;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 2px 18px rgba(0,0,0,.04);
+    }
+    .step-number {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(0,115,168,.12);
+      color: var(--blue);
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .step-card p {
+      color: #4b6073;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .warning-box {
+      margin-top: 18px;
+      background: rgba(245,166,35,.14);
+      border: 1px solid rgba(210,140,20,.35);
+      border-radius: 14px;
+      padding: 16px;
+      color: #6b4a12;
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .after-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 2px 18px rgba(0,0,0,.04);
+    }
+    .after-box ul { margin-top: 12px; }
+    .after-box li {
+      margin-bottom: 8px;
+      color: #496177;
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .email-highlight {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(0,115,168,.08);
+      border: 1px dashed rgba(0,115,168,.32);
+      color: #2e526e;
+      font-weight: 700;
+    }
+
+    .institutional {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(0,0,0,.04);
+    }
+    .institutional-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .institutional-row:last-child { border-bottom: none; }
+    .institutional-row span {
+      padding: 14px 18px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .institutional-row span:first-child {
+      background: #f9fbfd;
+      color: #4d6376;
+      font-weight: 600;
+      border-right: 1px solid var(--border);
+    }
+    .institutional-row span:last-child {
+      color: #324a5f;
+      font-weight: 500;
+    }
+
+    .final-section {
+      background: linear-gradient(180deg, #f3f8fc 0%, #e8f1f9 100%);
+      padding-top: 72px;
+      padding-bottom: 96px;
+    }
+
+    .final-cta {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(0,115,168,.28), transparent 45%),
+        radial-gradient(circle at 88% 80%, rgba(141,202,240,.22), transparent 45%),
+        var(--bg-navy);
+      border-radius: 24px;
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 44px);
+      text-align: center;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 22px 54px rgba(5,18,35,.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta h2 {
+      font-size: clamp(34px, 4.8vw, 66px);
+      line-height: 1.14;
+      margin-bottom: 12px;
+    }
+    .final-cta p {
+      color: rgba(255,255,255,.74);
+      font-size: clamp(15px, 1.8vw, 20px);
+      line-height: 1.75;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+    .final-tagline {
+      color: #8dcaf0;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .final-cta .btn {
+      min-width: 240px;
+      justify-content: center;
+    }
+    .final-meta {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .final-meta span {
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.07);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: rgba(255,255,255,.9);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    #footer { background: var(--bg-navy); border-top: 1px solid rgba(255,255,255,.06); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer-brand p { margin-top: 18px; font-size: 14px; color: rgba(255,255,255,.4); line-height: 1.72; max-width: 290px; }
+    .footer-col h4 { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col li a { color: rgba(255,255,255,.42); font-size: 14px; transition: color .2s; }
+    .footer-col li a:hover { color: #fff; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-bottom p { color: rgba(255,255,255,.28); font-size: 13px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.45); transition: all .25s;
+    }
+    .footer-social a:hover { background: var(--blue); color: #fff; }
+
+    @media (max-width: 1024px) {
+      .impact-list, .steps-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      #navbar { padding-top: env(safe-area-inset-top); }
+      .nav-inner { height: auto; min-height: 72px; padding: 12px 0 10px; flex-wrap: wrap; gap: 12px; }
+      .nav-links { display: flex; order: 3; width: 100%; overflow-x: auto; gap: 16px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { white-space: nowrap; font-size: 13px; padding-bottom: 8px; }
+      .hero { padding-top: 132px; }
+      .final-cta .btn { width: 100%; justify-content: center; white-space: normal; }
+      .institutional-row { grid-template-columns: 1fr; }
+      .institutional-row span:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .final-cta {
+        border-radius: 18px;
+        padding: 26px 18px;
+      }
+      .final-meta { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .final-cta h2 { font-size: clamp(30px, 10vw, 44px); }
+      .final-tagline {
+        letter-spacing: 0;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <span class="hero-badge">Destinação de IRPF</span>
+        <h1 id="hero-title">Destine seu IR para o Soul Surf</h1>
+        <p>Transforme parte do seu imposto em oportunidades reais para crianças e adolescentes.</p>
+        <p>
+          Com a destinação do Imposto de Renda, você ajuda o <strong>Projeto Social Soul Surf</strong> a ampliar o acesso ao surf,
+          ao desenvolvimento social e a novas perspectivas de vida para crianças, adolescentes e suas famílias.
+        </p>
+        <a class="btn btn-primary" href="#passo-a-passo">Quero Destinar Meu IR</a>
+      </div>
+    </section>
+
+    <section class="section-wrap" aria-labelledby="destinacao-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Destinação de IRPF</span>
+          <h2 id="destinacao-heading">Rápida, fácil e segura</h2>
+        </div>
+        <p class="content-text">
+          A destinação do Imposto de Renda é uma forma <strong>rápida, fácil e segura</strong> de apoiar projetos sociais voltados a crianças e adolescentes.
+          Pessoas físicas que declaram no <strong>modelo completo</strong> podem direcionar <strong>até 3% do imposto devido</strong> para o
+          <strong>Fundo Municipal dos Direitos da Criança e do Adolescente</strong>, fortalecendo iniciativas de impacto social.
+          No Soul Surf, esse apoio ajuda a levar o projeto <strong>do morro para o mar</strong> e do mar para a vida.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-wrap alt" aria-labelledby="impacto-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Impacto Real</span>
+          <h2 id="impacto-heading">Por que apoiar o Soul Surf</h2>
+          <p>Com sua destinação, fortalecemos ações que geram transformação contínua.</p>
+        </div>
+        <ul class="impact-list">
+          <li>Aulas e vivências de surf.</li>
+          <li>Inclusão social de crianças e adolescentes.</li>
+          <li>Desenvolvimento de autoestima, disciplina e pertencimento.</li>
+          <li>Apoio às famílias atendidas.</li>
+          <li>Melhoria de estrutura e continuidade dos programas.</li>
+          <li>Fortalecimento do impacto social do projeto.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-wrap" id="passo-a-passo" aria-labelledby="passo-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Passo a Passo</span>
+          <h2 id="passo-heading">Basta seguir o passo a passo abaixo</h2>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card"><div class="step-number">1</div><p>Preencha sua declaração no modelo completo.</p></article>
+          <article class="step-card"><div class="step-number">2</div><p>No programa da declaração, acesse "Doações Diretamente na Declaração".</p></article>
+          <article class="step-card"><div class="step-number">3</div><p>Escolha o Fundo Municipal dos Direitos da Criança e do Adolescente.</p></article>
+          <article class="step-card"><div class="step-number">4</div><p>Selecione a UF e o município correspondente ao fundo que apoiará o Soul Surf.</p></article>
+          <article class="step-card"><div class="step-number">5</div><p>O sistema calculará automaticamente o valor disponível para destinação, respeitando o limite legal.</p></article>
+          <article class="step-card"><div class="step-number">6</div><p>Informe o valor que deseja destinar.</p></article>
+          <article class="step-card"><div class="step-number">7</div><p>Gere o DARF na opção de impressão.</p></article>
+          <article class="step-card"><div class="step-number">8</div><p>Realize o pagamento dentro do prazo vigente da declaração.</p></article>
+        </div>
+
+        <div class="warning-box">
+          <strong>Importante:</strong> antes de publicar, substitua pelos dados atualizados e corretos do município, fundo, prazo e e-mail responsável.
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap alt" aria-labelledby="apos-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Após o Pagamento</span>
+          <h2 id="apos-heading">Envie seus dados para direcionamento da doação</h2>
+        </div>
+        <div class="after-box">
+          <p class="content-text" style="max-width:none;">
+            Depois de pagar o DARF, oriente o visitante a enviar os dados abaixo para que a destinação seja vinculada corretamente ao Soul Surf:
+          </p>
+          <ul>
+            <li>Comprovante de pagamento do DARF.</li>
+            <li>Declaração/formulário de destinação preenchido.</li>
+            <li>Nome completo e CPF, se necessário para identificação.</li>
+          </ul>
+          <div class="email-highlight">E-mail para contato: [INSERIR E-MAIL OFICIAL DO SOUL SURF]</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap sand" aria-labelledby="institucional-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Confiança</span>
+          <h2 id="institucional-heading">Informações do Projeto</h2>
+        </div>
+
+        <div class="institutional">
+          <div class="institutional-row"><span>Razão Social</span><span>Associacao de Surf Cibratel</span></div>
+          <div class="institutional-row"><span>Nome Fantasia</span><span>Projeto Social Soul Surf</span></div>
+          <div class="institutional-row"><span>CNPJ</span><span>44.172.734/0001-23</span></div>
+          <div class="institutional-row"><span>Data da Abertura</span><span>22/09/2021</span></div>
+          <div class="institutional-row"><span>Porte</span><span>Sem Enquadramento</span></div>
+          <div class="institutional-row"><span>Natureza Jurídica</span><span>Associação Privada</span></div>
+          <div class="institutional-row"><span>Opção pelo MEI</span><span>Não</span></div>
+          <div class="institutional-row"><span>Tipo</span><span>Matriz</span></div>
+          <div class="institutional-row"><span>Situação</span><span>Ativa</span></div>
+          <div class="institutional-row"><span>Data da Situação Cadastral</span><span>22/09/2021</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap final-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="final-cta">
+          <h2 id="cta-heading">Faça parte dessa transformação</h2>
+          <p>
+            Ao destinar parte do seu Imposto de Renda ao Soul Surf, você ajuda a criar oportunidades concretas para crianças e adolescentes.
+          </p>
+          <p class="final-tagline">Do morro para o mar. Do mar para a vida.</p>
+          <a class="btn btn-primary" href="#passo-a-passo">Destinar Meu IR Agora</a>
+          <div class="final-meta" aria-label="Resumo rápido de confiança e impacto">
+            <span>Até 3% do IRPF no modelo completo</span>
+            <span>Processo legal e orientado passo a passo</span>
+            <span>Impacto direto em 200+ jovens atendidos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/shared.js"></script>
+</body>
+</html>

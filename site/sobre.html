@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conheça a Associação de Surf Cibratel — Projeto Social Soul Surf. Nossa missão, visão, valores e história desde 2021." />
+  <meta name="theme-color" content="#0073A8" />
+  <title>Sobre o Projeto Soul Surf</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="css/shared.css" />
+  
+  <style>
+    body { padding-top: 72px; }
+
+    .page-hero {
+      padding: 60px 0;
+      background:
+        linear-gradient(135deg, rgba(0, 115, 168, .82) 0%, rgba(0, 78, 116, .82) 100%),
+        url('./fotos/IMG_4165.JPG') center/cover no-repeat;
+      color: #fff; text-align: center;
+    }
+    .page-hero h1 { font-size: clamp(42px, 6vw, 68px); margin-bottom: 18px; }
+    .page-hero p { font-size: 18px; opacity: .9; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+    .content-section { padding: 80px 0; }
+    .content-section h2 { font-size: 42px; color: var(--bg-dark); margin-bottom: 28px; }
+    .content-section p { color: var(--text-light); font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
+
+    .history-timeline {
+      margin: 60px 0; padding: 40px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item {
+      display: flex; gap: 40px; margin-bottom: 48px;
+      padding-bottom: 48px; border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-year {
+      min-width: 100px; font-size: 32px; font-weight: 800;
+      color: var(--blue);
+    }
+    .timeline-content h3 { color: var(--bg-dark); margin-bottom: 12px; font-size: 22px; }
+    .timeline-content p { color: var(--text-light); line-height: 1.7; }
+
+    .values-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px; margin: 60px 0;
+    }
+    .value-card {
+      background: var(--bg-light); padding: 40px; border-radius: 16px;
+      border-left: 4px solid var(--blue);
+    }
+    .value-card h3 { color: var(--bg-dark); margin-bottom: 12px; font-size: 24px; }
+    .value-card p { color: var(--text-light); line-height: 1.7; }
+
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px; margin: 60px 0;
+    }
+    .team-member {
+      text-align: center; background: #fff;
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 32px; transition: all .3s ease;
+    }
+    .team-member:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0,0,0,.12); }
+    .team-member img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 18px; }
+    .team-member h4 { color: var(--bg-dark); margin-bottom: 6px; }
+    .team-member p { color: var(--text-light); font-size: 14px; }
+
+    .impact-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px; margin: 60px 0; text-align: center;
+    }
+    .stat-card {
+      padding: 32px; background: var(--bg-light); border-radius: 16px;
+    }
+    .stat-number { font-size: 48px; font-weight: 800; color: var(--blue); margin-bottom: 8px; }
+    .stat-label { color: var(--text-light); font-size: 15px; }
+
+    @media (max-width: 768px) {
+      body { padding-top: 64px; }
+      .page-hero { padding: 40px 0; }
+      .page-hero h1 { font-size: 32px; }
+      .content-section h2 { font-size: 28px; }
+      .timeline-item { flex-direction: column; gap: 0; }
+      .timeline-year { font-size: 24px; margin-bottom: 12px; }
+      .value-card { border-left-width: 3px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Sobre o Soul Surf</h1>
+        <p>Conheça a história, valores e missão da Associação de Surf Cibratel — Projeto Social Soul Surf</p>
+      </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section class="content-section" style="background: #fff;">
+      <div class="container">
+        <h2>Nossa História</h2>
+        <p>
+          Fundada em setembro de 2021 em Itanhaém/SP, a <strong>Associação de Surf Cibratel – Projeto Social Soul Surf</strong> 
+          nasceu do sonho de transformar vidas de crianças e adolescentes em situação de vulnerabilidade através do surf.
+        </p>
+        <p>
+          O projeto começou pequeno, com voluntários apaixonados pelo esporte e pela causa social. Hoje, atendemos mais de 200 jovens, 
+          oferecendo não apenas aulas de surf, mas educação integral, tecnologia digital e consciência ambiental.
+        </p>
+        <p>
+          Acreditamos que o oceano é mais que um espaço de lazer — é uma escola de vida que ensina respeito, coragem e superação.
+        </p>
+
+        <div class="history-timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2021</div>
+            <div class="timeline-content">
+              <h3>Fundação do Projeto</h3>
+              <p>Lançamento oficial do Projeto Social Soul Surf com as primeiras aulas de surf em Itanhaém/SP, atendendo famílias em situação de vulnerabilidade.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-content">
+              <h3>Expansão das Atividades</h3>
+              <p>Início do programa de educação e reforço escolar. Ampliação do número de aulas e consolidação da equipe de voluntários.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-content">
+              <h3>Soul Surf Digitais</h3>
+              <p>Lançamento da iniciativa de tecnologia digital, preparando jovens para o mercado de trabalho com cursos de informática e programação.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-content">
+              <h3>Campanha de Infraestrutura</h3>
+              <p>Campanha por água doce e estrutura física. Crescimento para 200+ jovens atendidos e consolidação de 3 frentes de atuação.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Missão, Visão, Valores -->
+    <section id="mvv" class="content-section" style="background: var(--bg-light);">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 56px;">Missão, Visão e Valores</h2>
+
+        <div class="values-grid">
+          <div class="value-card" style="border-left-color: var(--blue);">
+            <h3>Missão</h3>
+            <p>
+              Promover a inclusão social de crianças e adolescentes em vulnerabilidade — física, emocional, cognitiva ou social — 
+              por meio de projetos educacionais, esportivos, culturais e ambientais vinculados ao surf.
+            </p>
+          </div>
+
+          <div class="value-card" style="border-left-color: var(--green);">
+            <h3>Visão</h3>
+            <p>
+              Fortalecer a crença na superação e na capacidade humana de vencer os desafios mais inesperados — assim como o surfista 
+              enfrenta cada onda com coragem e confiança.
+            </p>
+          </div>
+
+          <div class="value-card" style="border-left-color: var(--gold);">
+            <h3>Valores</h3>
+            <p>
+              <strong>Respeito · Fraternidade · Solidariedade</strong><br><br>
+              Empatia, autoestima, autoconfiança e fortalecimento dos vínculos familiares. Esses são os pilares que guiam cada aula, 
+              cada ação e cada sorriso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Números de Impacto -->
+    <section class="content-section" style="background: #fff;">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 56px;">Números que Falam</h2>
+
+        <div class="impact-stats">
+          <div class="stat-card">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Jovens Impactados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4+</div>
+            <div class="stat-label">Anos de Atuação</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Frentes de Atuação</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Impacto Social Real</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipe de Liderança -->
+    <section class="content-section" style="background: var(--bg-light);">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 56px;">Nossa Equipe</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 48px;">
+          Conheça as pessoas apaixonadas que fazem o Soul Surf acontecer todo dia.
+        </p>
+
+        <!-- Adicionar foto e dados dos membros conforme disponível -->
+        <p style="text-align: center; color: var(--text-light); padding: 40px; background: #fff; border-radius: 12px;">
+          Galeria da equipe em construção. Breve teremos as fotos e histórias de todos os membros e voluntários!
+        </p>
+      </div>
+    </section>
+
+    <!-- Parcerias -->
+    <section class="content-section" style="background: #fff;">
+      <div class="container">
+        <h2 style="text-align: center;">Nossos Parceiros</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 48px;">
+          Organizações e empresas que acreditam no nosso propósito.
+        </p>
+        <p style="text-align: center; color: var(--text-light); padding: 40px; background: var(--bg-light); border-radius: 12px;">
+          Logos de parceiros em breve!
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, var(--blue) 0%, #004e74 100%); color: #fff; text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 42px; margin-bottom: 18px;">Faça Parte dessa Transformação</h2>
+        <p style="font-size: 18px; opacity: .9; margin-bottom: 32px;">Apoie o Soul Surf e ajude a mudar vidas.</p>
+        <a href="./vagas-em-aberto.html" class="btn btn-primary" style="font-size: 17px; padding: 18px 44px;">
+          Apoie Agora
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/shared.js"></script>
+</body>
+</html>

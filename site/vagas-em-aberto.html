@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vagas em aberto para voluntariado no Projeto Soul Surf." />
+  <meta name="theme-color" content="#0073A8" />
+  <title>Vagas em Aberto - Soul Surf</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/shared.css" />
+
+  <style>
+    body { padding-top: 72px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 13px 24px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      cursor: pointer; border: none; transition: all 0.3s ease;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(10,22,40,.97);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px rgba(0,0,0,.35);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; height: 72px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; color: #fff; }
+    .nav-logo-icon {
+      width: 44px; height: 44px; border-radius: 13px;
+      background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+    }
+    .nav-logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-logo-text strong { display: block; font-size: 18px; font-weight: 800; letter-spacing: .04em; line-height: 1.2; }
+    .nav-logo-text span { font-size: 11px; color: rgba(255,255,255,.55); letter-spacing: .12em; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a {
+      color: rgba(255,255,255,.75); font-size: 14px; font-weight: 500;
+      transition: color .2s; position: relative; padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--blue); transition: width .3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
+
+    .hero {
+      padding: 138px 0 70px;
+      background:
+        linear-gradient(135deg, rgba(5,18,35,.93) 0%, rgba(0,50,90,.72) 52%, rgba(5,18,35,.58) 100%),
+        url('./fotos/Evento%20Soul%20Surf%20Voo-104.jpg') center/cover no-repeat;
+      color: #fff;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
+      border-radius: 50px; padding: 8px 20px;
+      color: rgba(255,255,255,.88); font-size: 12px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.02; letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      font-size: clamp(16px, 2.2vw, 21px);
+      color: rgba(255,255,255,.82);
+      max-width: 760px;
+      line-height: 1.65;
+    }
+
+    .section-wrap { padding: 82px 0; background: var(--bg-light); }
+    .section-header { margin-bottom: 36px; }
+    .label {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 14px;
+    }
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.14; color: var(--bg-dark); margin-bottom: 12px;
+    }
+    .section-header p {
+      font-size: 17px; color: var(--text-light); line-height: 1.75; max-width: 760px;
+    }
+
+    .vacancies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .vacancy-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 2px 18px rgba(0,0,0,.05);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+    }
+    .vacancy-card h3 {
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--bg-dark);
+      margin-bottom: 10px;
+    }
+    .vacancy-card p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .vacancy-meta {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .forms-note {
+      margin-top: 26px;
+      background: rgba(0,115,168,.06);
+      border: 1px dashed rgba(0,115,168,.32);
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 14px;
+      color: #32546d;
+      line-height: 1.7;
+    }
+
+    #footer { background: var(--bg-navy); border-top: 1px solid rgba(255,255,255,.06); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer-brand p { margin-top: 18px; font-size: 14px; color: rgba(255,255,255,.4); line-height: 1.72; max-width: 290px; }
+    .footer-col h4 { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col li a { color: rgba(255,255,255,.42); font-size: 14px; transition: color .2s; }
+    .footer-col li a:hover { color: #fff; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-bottom p { color: rgba(255,255,255,.28); font-size: 13px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.45); transition: all .25s;
+    }
+    .footer-social a:hover { background: var(--blue); color: #fff; }
+
+    @media (max-width: 1024px) {
+      .vacancies-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      #navbar { padding-top: env(safe-area-inset-top); }
+      .nav-inner { height: auto; min-height: 72px; padding: 12px 0 10px; flex-wrap: wrap; gap: 12px; }
+      .nav-links { display: flex; order: 3; width: 100%; overflow-x: auto; gap: 16px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { white-space: nowrap; font-size: 13px; padding-bottom: 8px; }
+      .hero { padding-top: 132px; }
+      .vacancies-grid { grid-template-columns: 1fr; }
+      .vacancy-card .btn,
+      .section-wrap > .container > div:last-child .btn { width: 100%; justify-content: center; white-space: normal; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <section class="hero" aria-labelledby="vagas-heading">
+      <div class="container">
+        <span class="hero-badge">Voluntariado Soul Surf</span>
+        <h1 id="vagas-heading">Vagas em Aberto</h1>
+        <p>Faça parte da nossa equipe de impacto social. Escolha uma vaga e se cadastre pelo formulário.</p>
+      </div>
+    </section>
+
+    <section class="section-wrap" aria-label="Vagas de voluntariado">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Inscrições</span>
+          <h2>Escolha a área em que você quer atuar</h2>
+          <p>Cada vaga possui um botão para cadastro via Google Forms. Você pode trocar os links pelos formulários oficiais quando quiser.</p>
+        </div>
+
+        <div class="vacancies-grid">
+          <article class="vacancy-card">
+            <span class="vacancy-meta">Eventos</span>
+            <h3>Voluntário de Apoio em Eventos</h3>
+            <p>Atuação em logística, recepção e organização durante ações sociais e esportivas do Soul Surf.</p>
+            <a class="btn btn-green" href="https://forms.gle/SEU_LINK_EVENTOS" target="_blank" rel="noopener noreferrer">Inscrever-se no formulário</a>
+          </article>
+
+          <article class="vacancy-card">
+            <span class="vacancy-meta">Educação</span>
+            <h3>Voluntário de Educação</h3>
+            <p>Apoio em reforço escolar, atividades socioeducativas e acompanhamento de desenvolvimento dos jovens.</p>
+            <a class="btn btn-green" href="https://forms.gle/SEU_LINK_EDUCACAO" target="_blank" rel="noopener noreferrer">Inscrever-se no formulário</a>
+          </article>
+
+          <article class="vacancy-card">
+            <span class="vacancy-meta">Comunicação</span>
+            <h3>Voluntário de Comunicação</h3>
+            <p>Registro das ações, produção de conteúdo e suporte nas redes sociais do projeto.</p>
+            <a class="btn btn-green" href="https://forms.gle/SEU_LINK_COMUNICACAO" target="_blank" rel="noopener noreferrer">Inscrever-se no formulário</a>
+          </article>
+        </div>
+
+        <div class="forms-note">
+          Substitua os links abaixo pelos links reais dos seus formulários:
+          <br />
+          <strong>Eventos:</strong> https://forms.gle/SEU_LINK_EVENTOS
+          <br />
+          <strong>Educação:</strong> https://forms.gle/SEU_LINK_EDUCACAO
+          <br />
+          <strong>Comunicação:</strong> https://forms.gle/SEU_LINK_COMUNICACAO
+        </div>
+
+        <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="./apoie-o-soul-surf.html">Voltar para Apoie o Soul Surf</a>
+          <a class="btn btn-outline" href="./index.html#footer">Falar com a equipe</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/shared.js"></script>
+</body>
+</html>
