@@ -42,9 +42,22 @@
     .hero-overlay {
       position: absolute; inset: 0;
       z-index: 1;
-      background: linear-gradient(135deg, rgba(5,18,35,.93) 0%, rgba(0,50,90,.72) 52%, rgba(5,18,35,.58) 100%);
+      background:
+        radial-gradient(circle at 82% 18%, rgba(0,115,168,.34) 0%, transparent 34%),
+        linear-gradient(120deg, rgba(5,18,35,.94) 0%, rgba(5,18,35,.74) 46%, rgba(2,18,33,.84) 100%);
     }
     .hero-content { position: relative; z-index: 10; max-width: 800px; }
+    .hero-kicker {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,.72);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(14px);
+    }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 10px;
       background: rgba(0,115,168,.22); border: 1px solid rgba(0,115,168,.45);
@@ -76,6 +89,31 @@
       opacity: 0; transform: translateY(22px);
     }
     .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; transform: translateY(22px); }
+    .hero-meta {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.9);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .hero-meta-item b {
+      color: #fff;
+      font-weight: 800;
+    }
     .hero-wave { position: absolute; bottom: -2px; left: 0; right: 0; z-index: 5; }
     .scroll-hint {
       position: absolute; bottom: 88px; right: 42px; z-index: 10;
@@ -487,12 +525,17 @@
       .project-card-body,
       .blog-content { padding-left: 20px; padding-right: 20px; }
       .scroll-hint { display: none; }
+      .hero-kicker { letter-spacing: .28em; }
+      .hero-meta { gap: 8px; }
+      .hero-meta-item { font-size: 11px; padding: 7px 12px; }
       .about-badge { position: static; margin-top: 16px; display: inline-block; }
       .cta-btns { flex-direction: column; align-items: center; }
     }
     @media (max-width: 480px) {
       .hero-content { padding-top: calc(100px + env(safe-area-inset-top)); }
       .hero-badge { display: none; }
+      .hero-kicker { display: none; }
+      .hero-meta { display: none; }
       .stats-grid { grid-template-columns: 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
       .stat-item:last-child { border-bottom: none; }
@@ -521,6 +564,8 @@
 
     <div class="container">
       <div class="hero-content">
+        <span class="hero-kicker" id="heroKicker">S O U L  *  S U R F</span>
+
         <div class="hero-badge" id="heroBadge" aria-hidden="true">
           <span class="hero-badge-dot"></span>
           Esporte · Educação · Transformação Social
@@ -545,6 +590,12 @@
           <a href="#about" class="btn btn-outline-light" style="font-size:16px;padding:16px 36px;">
             Conheça o Projeto
           </a>
+        </div>
+
+        <div class="hero-meta" id="heroMeta" aria-label="Indicadores do projeto">
+          <span class="hero-meta-item"><b>200+</b> jovens atendidos</span>
+          <span class="hero-meta-item"><b>3</b> frentes de atuação</span>
+          <span class="hero-meta-item"><b>Desde 2021</b> em Itanhaém</span>
         </div>
       </div>
     </div>
@@ -925,11 +976,13 @@
     // --- Hero ---
     const heroTl = gsap.timeline({ delay: .35 });
     heroTl
+      .to('#heroKicker', { opacity: 1, y: 0, duration: .5, ease: 'power2.out' })
       .to('#heroBadge', { opacity: 1, y: 0, duration: .6, ease: 'power2.out' })
       .to('#heroTitle', { clipPath: 'inset(0 0% 0 0)', duration: 1.05, ease: 'power3.out' }, '-=.2')
       .to('#heroSubtitle', { opacity: 1, y: 0, duration: .65, ease: 'power2.out' }, '-=.45')
       .to('#heroDesc', { opacity: 1, y: 0, duration: .65, ease: 'power2.out' }, '-=.38')
       .to('#heroCtas', { opacity: 1, y: 0, duration: .6, ease: 'power2.out' }, '-=.35')
+      .to('#heroMeta', { opacity: 1, y: 0, duration: .55, ease: 'power2.out' }, '-=.25')
       .to('#scrollHint', { opacity: 1, duration: .5 }, '-=.15');
 
     // --- Paralaxe do hero ---
