@@ -4,19 +4,23 @@
 const siteBase = new URL('../', import.meta.url)
 const siteUrl = (path) => new URL(path, siteBase).toString()
 const logoUrl = new URL('fotos/491803886_10233882011684977_8940823745485622745_n.jpg', siteBase).href
+const homeUrl = siteUrl('index.html')
+const homePathname = new URL(homeUrl).pathname
+const currentPathname = window.location.pathname
+const isHomePage = currentPathname === homePathname || currentPathname === `${homePathname.replace(/index\.html$/, '')}`
 
 const urls = {
-  home: siteUrl('index.html'),
+  home: homeUrl,
   about: siteUrl('sobre.html'),
   initiatives: siteUrl('iniciativas.html'),
   support: siteUrl('apoie-o-soul-surf.html'),
   transparency: siteUrl('transparencia.html'),
   contact: siteUrl('contato.html'),
-  gallery: `${siteUrl('index.html')}#gallery`,
-  blog: `${siteUrl('index.html')}#blog`,
+  gallery: isHomePage ? '#gallery' : `${homeUrl}#gallery`,
+  blog: isHomePage ? '#blog' : `${homeUrl}#blog`,
   mvv: `${siteUrl('sobre.html')}#mvv`,
-  water: `${siteUrl('index.html')}#water`,
-  sponsors: `${siteUrl('index.html')}#sponsors`,
+  water: isHomePage ? '#water' : `${homeUrl}#water`,
+  sponsors: isHomePage ? '#sponsors' : `${homeUrl}#sponsors`,
   terms: siteUrl('termos-de-uso.html'),
   privacy: siteUrl('politica-de-privacidade.html'),
   cookies: siteUrl('politica-cookies.html'),
