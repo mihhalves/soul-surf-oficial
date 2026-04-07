@@ -154,20 +154,18 @@
 
     .bank-box {
       margin-top: 10px;
-      background: rgba(0,115,168,.06);
-      border: 1px dashed rgba(0,115,168,.32);
-      border-radius: 14px;
-      padding: 18px;
-      color: #34546c;
-    }
-    .bank-space {
-      margin-top: 10px;
-      min-height: 90px;
-      border: 1px dashed rgba(0,115,168,.35);
-      border-radius: 12px;
       background: #fff;
-      padding: 12px;
-      color: #8da2b5;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      color: #34546c;
+      display: flex;
+      justify-content: center;
+    }
+    .pix-qr {
+      width: min(100%, 420px);
+      border-radius: 10px;
+      display: block;
     }
 
     .impact-photo {
@@ -361,12 +359,9 @@
         </article>
 
         <article class="donation-card">
-          <h3>PIX e deposito</h3>
-          <p>Prefere transferencia direta? Use os dados abaixo:</p>
+          <h3>Doacao via PIX</h3>
           <div class="bank-box">
-            <p><strong>CHAVE PIX:</strong> (CNPJ) depois eu coloco</p>
-            <p><strong>Dados Bancarios:</strong></p>
-            <div class="bank-space">Espaco para banco, agencia, conta, favorecido e CNPJ.</div>
+            <img class="pix-qr" src="./fotos/doacao-via-pix.png" alt="QR code para doacao via PIX do Projeto Soul Surf" loading="lazy" />
           </div>
         </article>
 
