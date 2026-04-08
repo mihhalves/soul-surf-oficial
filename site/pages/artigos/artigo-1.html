@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Por que o surf transforma vidas · Soul Surf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ocean-deep: #0a2a3a;
+      --ocean-mid: #134e68;
+      --ocean-light: #1e7fa0;
+      --foam: #e8f4f8;
+      --sand: #f5ede0;
+      --coral: #e05c3a;
+      --gold: #d4a843;
+      --text: #1a1a1a;
+      --text-light: #5a5a5a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--ocean-deep);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a { color: #fff; text-decoration: none; font-size: 0.85rem; opacity: 0.8; transition: opacity .2s; }
+    nav a:hover { opacity: 1; }
+    nav .brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; opacity: 1; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      background: linear-gradient(160deg, var(--ocean-deep) 0%, var(--ocean-mid) 55%, var(--ocean-light) 100%);
+      padding: 5rem 2rem 4rem;
+      overflow: hidden;
+      color: #fff;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 80px;
+      background: var(--sand);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero .tag {
+      display: inline-block;
+      background: var(--coral);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero .meta { font-size: 0.85rem; opacity: 0.7; }
+
+    /* BODY */
+    .article-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .article-wrap p { margin-bottom: 1.5rem; font-size: 1.05rem; font-weight: 300; color: #2a2a2a; }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--ocean-deep);
+      margin: 2.5rem 0 1rem;
+      border-left: 4px solid var(--coral);
+      padding-left: 1rem;
+    }
+
+    /* CALLOUT */
+    .callout {
+      background: var(--ocean-deep);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      position: relative;
+    }
+    .callout::before { content: '"'; font-size: 4rem; position: absolute; top: -0.5rem; left: 1.2rem; opacity: .25; font-family: 'Playfair Display', serif; }
+
+    /* BENEFITS GRID */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .benefit-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.4rem;
+      border-top: 3px solid var(--ocean-light);
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .benefit-card .icon { font-size: 1.6rem; margin-bottom: .5rem; }
+    .benefit-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--ocean-deep); margin-bottom: .4rem; }
+    .benefit-card p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, var(--coral), #c0392b);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: .8rem; }
+    .cta-box p { font-size: 0.95rem; opacity: .9; margin-bottom: 1.5rem; }
+    .cta-box a {
+      display: inline-block;
+      background: #fff;
+      color: var(--coral);
+      font-weight: 500;
+      padding: .75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: transform .2s;
+    }
+    .cta-box a:hover { transform: translateY(-2px); }
+
+    /* BACK */
+    .back { text-align: center; margin-top: 2rem; }
+    .back a { color: var(--ocean-mid); text-decoration: none; font-size: 0.9rem; }
+    .back a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">Soul Surf</a>
+  <a href="../index.html#blog">← Voltar ao Blog</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="tag">Esporte & Desenvolvimento</span>
+    <h1>Por que o surf transforma vidas: os benefícios reais para crianças e adolescentes</h1>
+    <p class="meta">15 Abr 2026 · 6 min de leitura · Projeto Soul Surf</p>
+  </div>
+</header>
+
+<main class="article-wrap">
+
+  <p>No Projeto Social Soul Surf, acreditamos que uma prancha e uma onda são muito mais do que equipamento esportivo — são ferramentas de transformação. Mas o que a ciência e a prática dizem sobre isso? Por que o surf tem um impacto tão profundo no desenvolvimento de crianças e adolescentes, especialmente aqueles em situação de vulnerabilidade?</p>
+
+  <p>A resposta está em como o surf trabalha o ser humano por inteiro: corpo, mente, emoções e relações sociais ao mesmo tempo.</p>
+
+  <h2>Um esporte que desenvolve o corpo por completo</h2>
+
+  <p>O surf é considerado um dos exercícios mais completos que existem. Cada sessão na água envolve remada — que fortalece braços, costas e ombros —, equilíbrio constante sobre a prancha, coordenação motora fina e resistência cardiovascular. Ao contrário de esportes unilaterais que desenvolvem apenas um lado do corpo, o surf promove um desenvolvimento simétrico e global, especialmente importante para crianças em crescimento.</p>
+
+  <p>Para os jovens do Soul Surf, muitos dos quais nunca tiveram acesso a atividades esportivas regulares, entrar no mar significa dar um passo enorme em direção a uma vida mais saudável e ativa.</p>
+
+  <div class="benefits">
+    <div class="benefit-card">
+      <div class="icon">💪</div>
+      <h3>Força muscular</h3>
+      <p>Remada e equilíbrio trabalham todo o corpo a cada sessão.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon">⚖️</div>
+      <h3>Equilíbrio</h3>
+      <p>A prancha exige equilíbrio contínuo, aprimorando a coordenação.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon">❤️</div>
+      <h3>Saúde cardiovascular</h3>
+      <p>Atividade aeróbica intensa em contato com a natureza.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon">🧠</div>
+      <h3>Funções executivas</h3>
+      <p>Atenção, planejamento e flexibilidade cognitiva melhoram com a prática.</p>
+    </div>
+  </div>
+
+  <h2>O impacto na saúde mental</h2>
+
+  <p>Pesquisas acadêmicas mostram que a prática do surf produz benefícios psicológicos consistentes. Um estudo publicado pela Universidade do Algarve analisou jovens entre 12 e 19 anos participantes de um programa de surf terapêutico e encontrou melhoras significativas em competências socioemocionais, redução de sintomas depressivos e ansiosos, e maior satisfação com o suporte social.</p>
+
+  <p>Outro estudo, realizado pela Universidade Lusófona com crianças e adolescentes com TDAH e TEA, identificou ganhos expressivos nas funções executivas — atenção, planejamento, memória e controle inibitório — após três meses de surf terapia semanal. As crianças apresentaram progressos mais expressivos do que adultos, o que reforça a importância de começar cedo.</p>
+
+  <div class="callout">
+    Participantes de projetos de surf relataram redução da ansiedade, do estresse e aumento da confiança, além de melhoria significativa na qualidade dos relacionamentos interpessoais.
+  </div>
+
+  <h2>Disciplina, resiliência e trabalho em equipe</h2>
+
+  <p>O surf ensina, de forma prática e visceral, que o esforço precede a recompensa. Nenhuma criança pega sua primeira onda sem cair dezenas de vezes antes. Esse processo — cair, levantar, tentar de novo — é uma metáfora viva para os desafios da vida. Para jovens que enfrentam contextos difíceis fora da água, aprender a persistir no mar é aprender a persistir na vida.</p>
+
+  <p>Além disso, o ambiente do projeto cria vínculos. Treinar junto, respeitar o colega na fila da onda, celebrar a conquista do outro — tudo isso constrói uma cultura de respeito e cooperação que se reflete na escola, em casa e na comunidade.</p>
+
+  <h2>Do mar pra vida: o que os números mostram</h2>
+
+  <p>Iniciativas como o Projeto Ondas, em Guarujá, que já atendeu mais de 700 crianças ao longo de 15 anos, mostram resultados concretos: melhora no desempenho escolar, comportamento mais responsável em casa e na escola, e jovens que se tornam referências positivas em suas comunidades.</p>
+
+  <p>No Soul Surf, vemos isso acontecer a cada temporada. Jovens que chegaram tímidos e inseguros ganham confiança a cada onda. Crianças que faltavam aula passam a ter rotina. Adolescentes que não se reconheciam capazes descobrem, no mar, que são muito mais do que imaginavam.</p>
+
+  <p>É por isso que dizemos: do mar pra vida. O surf não é o destino — é o caminho.</p>
+
+  <div class="cta-box">
+    <h3>Apoie essa transformação</h3>
+    <p>Sua doação garante mais aulas de surf, mais oportunidades e mais histórias como essas.</p>
+    <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank">Quero Apoiar o Soul Surf</a>
+  </div>
+
+</main>
+
+<div class="back">
+  <a href="../index.html#blog">← Voltar para o Blog</a>
+</div>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inclusão Social pelo Surf · Soul Surf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ocean-deep: #0a2a3a;
+      --ocean-mid: #134e68;
+      --ocean-light: #1e7fa0;
+      --sand: #f5ede0;
+      --coral: #e05c3a;
+      --amber: #c47c20;
+      --text: #1a1a1a;
+      --text-light: #5a5a5a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); line-height: 1.7; }
+
+    nav {
+      background: var(--ocean-deep);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a { color: #fff; text-decoration: none; font-size: 0.85rem; opacity: 0.8; transition: opacity .2s; }
+    nav a:hover { opacity: 1; }
+    nav .brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; opacity: 1; }
+
+    /* HERO — warm amber/sand */
+    .hero {
+      position: relative;
+      background: linear-gradient(150deg, #2a1500 0%, var(--amber) 55%, #e8a040 100%);
+      padding: 5rem 2rem 4rem;
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 80px;
+      background: var(--sand);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero .tag {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255,255,255,.3);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero .meta { font-size: 0.85rem; opacity: 0.7; }
+
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .article-wrap p { margin-bottom: 1.5rem; font-size: 1.05rem; font-weight: 300; color: #2a2a2a; }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--ocean-deep);
+      margin: 2.5rem 0 1rem;
+      border-left: 4px solid var(--amber);
+      padding-left: 1rem;
+    }
+
+    .callout {
+      background: var(--ocean-deep);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      position: relative;
+    }
+    .callout::before { content: '"'; font-size: 4rem; position: absolute; top: -0.5rem; left: 1.2rem; opacity: .2; font-family: 'Playfair Display', serif; }
+
+    /* TIMELINE */
+    .timeline { margin: 2rem 0; position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--amber), var(--ocean-light));
+      border-radius: 3px;
+    }
+    .tl-item { margin-bottom: 1.8rem; position: relative; }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: .45rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--amber);
+      border: 2px solid var(--sand);
+      box-shadow: 0 0 0 2px var(--amber);
+    }
+    .tl-item strong { display: block; font-size: .9rem; color: var(--amber); font-weight: 500; margin-bottom: .25rem; }
+    .tl-item p { margin: 0; font-size: .95rem; }
+
+    /* PILLARS */
+    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .pillar {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.4rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      border-bottom: 3px solid var(--amber);
+    }
+    .pillar .icon { font-size: 2rem; margin-bottom: .6rem; }
+    .pillar h3 { font-size: .95rem; color: var(--ocean-deep); font-weight: 500; margin-bottom: .35rem; }
+    .pillar p { font-size: .83rem; color: var(--text-light); margin: 0; }
+
+    /* TESTIMONY */
+    .testimony {
+      background: linear-gradient(135deg, #fff7ee, #fff);
+      border-left: 5px solid var(--coral);
+      padding: 1.5rem 1.8rem;
+      border-radius: 0 10px 10px 0;
+      margin: 2rem 0;
+    }
+    .testimony p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; margin: 0 0 .6rem; }
+    .testimony cite { font-size: .82rem; color: var(--text-light); font-style: normal; }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+      color: #fff;
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: .8rem; }
+    .cta-box p { font-size: 0.95rem; opacity: .9; margin-bottom: 1.5rem; }
+    .cta-box a {
+      display: inline-block;
+      background: var(--coral);
+      color: #fff;
+      font-weight: 500;
+      padding: .75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: transform .2s, background .2s;
+    }
+    .cta-box a:hover { transform: translateY(-2px); background: #c04a2c; }
+    .back { text-align: center; margin-top: 2rem; }
+    .back a { color: var(--ocean-mid); text-decoration: none; font-size: 0.9rem; }
+    .back a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">Soul Surf</a>
+  <a href="../index.html#blog">← Voltar ao Blog</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="tag">Inclusão Social</span>
+    <h1>Do morro pro mar: como o surf reconstrói futuros em comunidades vulneráveis</h1>
+    <p class="meta">30 Abr 2026 · 6 min de leitura · Projeto Soul Surf</p>
+  </div>
+</header>
+
+<main class="article-wrap">
+
+  <p>Existe uma distância invisível entre muitas comunidades brasileiras e o mar. Mesmo em cidades litorâneas como Itanhaém, crianças de bairros periféricos crescem sem acesso às praias — seja por falta de transporte, recursos, ou simplesmente por nunca ter tido alguém que as levasse até lá.</p>
+
+  <p>O Soul Surf existe para romper essa distância. E junto com ela, para transformar o que o surf pode fazer na vida de um jovem em situação de vulnerabilidade.</p>
+
+  <h2>O esporte como ferramenta de inclusão</h2>
+
+  <p>No Brasil, projetos sociais baseados no surf têm demonstrado resultados expressivos há décadas. O Projeto Ondas, fundado pelo bicampeão brasileiro Jojó de Olivença em Guarujá, atende jovens em vulnerabilidade desde 2007 e já impactou mais de 700 crianças, combinando esporte, reforço escolar, inclusão digital e acompanhamento psicossocial. Em 2006, o Surfecades iniciou em comunidades do Rio de Janeiro e já formou mais de 1.000 alunos no universo do surf.</p>
+
+  <p>Esses números não são coincidência. O surf possui uma combinação única de fatores que o torna especialmente eficaz como ferramenta de inclusão social.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="icon">🌊</div>
+      <h3>Pertencimento</h3>
+      <p>O mar pertence a todos. No surf, não há endereço ou classe social — há apenas a onda.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">🎯</div>
+      <h3>Foco e rotina</h3>
+      <p>A regularidade dos treinos cria estrutura e disciplina na vida do jovem.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">🤝</div>
+      <h3>Vínculos</h3>
+      <p>O ambiente do projeto cria amizades, referências e uma rede de apoio afetivo.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">🚀</div>
+      <h3>Perspectiva de futuro</h3>
+      <p>Do surf para o esporte, do esporte para a educação, da educação para o trabalho.</p>
+    </div>
+  </div>
+
+  <h2>O que diferencia o Soul Surf</h2>
+
+  <p>Fundada em setembro de 2021, a Associação de Surf Cibratel — Projeto Social Soul Surf nasceu com a proposta de ir além do esporte. Nossa abordagem integra três frentes que se complementam e formam um jovem completo:</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <strong>Do Morro Pro Mar — Esporte</strong>
+      <p>Nossa principal frente de inclusão leva crianças de bairros distantes de Itanhaém para a praia, oferecendo aulas de surf em ambiente seguro, acolhedor e com equipamentos adequados. Para muitas delas, é a primeira vez que entram no mar com orientação profissional.</p>
+    </div>
+    <div class="tl-item">
+      <strong>Soul Surf Digitais — Educação</strong>
+      <p>Além das ondas, preparamos os jovens para o mercado de trabalho com cursos de informática básica, programação e habilidades digitais. No Brasil, a exclusão digital ainda é uma barreira enorme para populações vulneráveis — e queremos ser parte da solução.</p>
+    </div>
+    <div class="tl-item">
+      <strong>Cultura e Meio Ambiente — Cidadania</strong>
+      <p>Formação cidadã com consciência ambiental, ações culturais e educação oceânica. Nossos alunos aprendem a se reconhecer como parte do mundo e a se responsabilizar por ele.</p>
+    </div>
+  </div>
+
+  <h2>O impacto que vai além da água</h2>
+
+  <p>Estudos sobre projetos similares no Brasil mostram que jovens que participam de programas de surf social apresentam melhora no desempenho e frequência escolar, maior autoestima e confiança, redução de comportamentos de risco e vínculos mais fortes com a família e a comunidade.</p>
+
+  <div class="testimony">
+    <p>O João ficou no projeto durante 3 anos. O comportamento dele só melhorou, tanto na escola quanto em casa. Ele é mais responsável e ativo.</p>
+    <cite>— Mãe de ex-aluno do Projeto Ondas, Guarujá/SP</cite>
+  </div>
+
+  <p>No Soul Surf, ouvimos relatos como esse a cada temporada. Crianças que chegaram fechadas e desconfiadas se abriram. Adolescentes que não viam sentido na escola passaram a se dedicar. Jovens que jamais tinham entrado no mar descobriram um lugar onde pertencem.</p>
+
+  <div class="callout">
+    Do mar pra vida não é só uma frase: é o caminho que queremos construir, onda por onda, junto com cada criança.
+    <br><small style="opacity:.7;font-style:normal;font-size:.75rem;">— Projeto Social Soul Surf</small>
+  </div>
+
+  <h2>Como você pode fazer parte disso</h2>
+
+  <p>Um projeto social não existe apenas pelos seus fundadores ou educadores. Existe porque pessoas e empresas acreditam que o esporte pode mudar vidas — e decidem apostar nisso.</p>
+
+  <p>Atualmente, o Soul Surf precisa de pranchas e equipamentos de segurança para ampliar as aulas, computadores para o Soul Surf Digitais, e apoio financeiro para a instalação de um poço artesiano que garanta água doce para banho após os treinos — dignidade básica para cada criança que passa pelo projeto.</p>
+
+  <p>Cada doação, cada prancha, cada computador representa uma criança a mais com acesso a um futuro diferente. E isso não tem preço.</p>
+
+  <div class="cta-box">
+    <h3>Doe e faça parte dessa onda</h3>
+    <p>Toda contribuição é transformação real na vida de um jovem de Itanhaém.</p>
+    <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank">Quero Apoiar o Soul Surf</a>
+  </div>
+
+</main>
+
+<div class="back">
+  <a href="../index.html#blog">← Voltar para o Blog</a>
+</div>
+<br>
+
+</body>
+</html>

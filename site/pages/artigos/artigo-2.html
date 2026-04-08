@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surfistas como guardiões do oceano · Soul Surf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ocean-deep: #0a2a3a;
+      --ocean-mid: #134e68;
+      --ocean-light: #1e7fa0;
+      --foam: #e8f4f8;
+      --sand: #f5ede0;
+      --coral: #e05c3a;
+      --green: #2d8a5e;
+      --text: #1a1a1a;
+      --text-light: #5a5a5a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); line-height: 1.7; }
+
+    nav {
+      background: var(--ocean-deep);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a { color: #fff; text-decoration: none; font-size: 0.85rem; opacity: 0.8; transition: opacity .2s; }
+    nav a:hover { opacity: 1; }
+    nav .brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; opacity: 1; }
+
+    /* HERO — verde oceano */
+    .hero {
+      position: relative;
+      background: linear-gradient(150deg, #062a1e 0%, var(--green) 60%, #1e7fa0 100%);
+      padding: 5rem 2rem 4rem;
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 80px;
+      background: var(--sand);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    /* wave decorativo */
+    .hero::after {
+      content: '〰〰〰〰〰〰〰〰';
+      position: absolute;
+      bottom: 60px; left: 0; right: 0;
+      text-align: center;
+      font-size: 1.5rem;
+      opacity: .08;
+      letter-spacing: .2em;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero .tag {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255,255,255,.3);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero .meta { font-size: 0.85rem; opacity: 0.7; }
+
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .article-wrap p { margin-bottom: 1.5rem; font-size: 1.05rem; font-weight: 300; color: #2a2a2a; }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--ocean-deep);
+      margin: 2.5rem 0 1rem;
+      border-left: 4px solid var(--green);
+      padding-left: 1rem;
+    }
+
+    .callout {
+      background: var(--green);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      position: relative;
+    }
+    .callout::before { content: '"'; font-size: 4rem; position: absolute; top: -0.5rem; left: 1.2rem; opacity: .2; font-family: 'Playfair Display', serif; }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat {
+      background: var(--ocean-deep);
+      color: #fff;
+      border-radius: 10px;
+      padding: 1.4rem 1rem;
+      text-align: center;
+    }
+    .stat .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #7ecfdf;
+      display: block;
+    }
+    .stat p { font-size: 0.8rem; opacity: .8; margin: 0; }
+
+    /* ACTIONS */
+    .actions { display: flex; flex-direction: column; gap: .7rem; margin: 1.5rem 0; }
+    .action-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .action-item .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+    .action-item strong { display: block; font-size: .95rem; color: var(--ocean-deep); margin-bottom: .2rem; }
+    .action-item span { font-size: .88rem; color: var(--text-light); }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--green), #1a5e40);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: .8rem; }
+    .cta-box p { font-size: 0.95rem; opacity: .9; margin-bottom: 1.5rem; }
+    .cta-box a {
+      display: inline-block;
+      background: #fff;
+      color: var(--green);
+      font-weight: 500;
+      padding: .75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: transform .2s;
+    }
+    .cta-box a:hover { transform: translateY(-2px); }
+    .back { text-align: center; margin-top: 2rem; }
+    .back a { color: var(--ocean-mid); text-decoration: none; font-size: 0.9rem; }
+    .back a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">Soul Surf</a>
+  <a href="../index.html#blog">← Voltar ao Blog</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="tag">Meio Ambiente</span>
+    <h1>Surfistas como guardiões do oceano: consciência ambiental que nasce nas ondas</h1>
+    <p class="meta">22 Abr 2026 · 5 min de leitura · Projeto Soul Surf</p>
+  </div>
+</header>
+
+<main class="article-wrap">
+
+  <p>Quando uma criança entra no mar pela primeira vez, ela não está apenas aprendendo a surfar. Ela está começando uma relação com o oceano que pode durar a vida inteira — e que carrega uma responsabilidade: cuidar do ambiente que a sustenta.</p>
+
+  <p>No Soul Surf, essa conexão não é acidental. Desde o início, nossa frente de Cultura e Meio Ambiente foi desenhada com um objetivo claro: formar jovens que não sejam apenas surfistas, mas agentes ativos de preservação da natureza em suas comunidades.</p>
+
+  <h2>Quem surfa, protege</h2>
+
+  <p>Uma pesquisa conduzida pelo Instituto Ecosurf — organização que também nasceu na praia de Itanhaém, mesma cidade onde o Soul Surf atua — revelou que a comunidade surfista está entre as mais conscientes ambientalmente do Brasil. Mais de 80% dos participantes relataram ter adotado práticas sustentáveis no cotidiano, como reduzir descartáveis e participar de limpezas de praia. E cerca de 93% disseram estar dispostos a se envolver ainda mais em ações de defesa do oceano.</p>
+
+  <p>Isso não é coincidência. Quem surfa vive o oceano de perto. Sente quando a água está mais quente, vê o lixo na areia, percebe quando o mar está diferente. Essa vivência cria um vínculo emocional que nenhuma aula em sala de aula consegue substituir.</p>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="num">81%</span>
+      <p>dos surfistas adotam práticas sustentáveis no dia a dia</p>
+    </div>
+    <div class="stat">
+      <span class="num">93%</span>
+      <p>estão dispostos a se engajar em ações de proteção do oceano</p>
+    </div>
+    <div class="stat">
+      <span class="num">25+</span>
+      <p>anos do movimento Ecosurf, nascido em Itanhaém/SP</p>
+    </div>
+  </div>
+
+  <h2>O que fazemos além das ondas</h2>
+
+  <p>No Soul Surf, a educação ambiental faz parte da formação integral dos nossos jovens. Nossas ações vão muito além das aulas de surf — incluem rodas de conversa sobre ecologia, mutirões de limpeza de praia, e o aprendizado de que o mar que nos dá prazer é o mesmo que precisamos proteger.</p>
+
+  <div class="actions">
+    <div class="action-item">
+      <div class="icon">🌊</div>
+      <div>
+        <strong>Mutirões de limpeza de praia</strong>
+        <span>Nossos alunos participam de ações coletivas de coleta de resíduos nas praias de Itanhaém, tornando-se referência de cidadania na comunidade.</span>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="icon">🐢</div>
+      <div>
+        <strong>Educação oceânica</strong>
+        <span>Oficinas que ensinam sobre ecossistemas marinhos, impactos do plástico e das mudanças climáticas na vida do oceano e das praias.</span>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="icon">🌱</div>
+      <div>
+        <strong>Formação de agentes ambientais</strong>
+        <span>Jovens que passam pelo projeto levam o conhecimento para casa, para a escola e para o bairro — multiplicando a consciência ambiental.</span>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="icon">♻️</div>
+      <div>
+        <strong>Consumo responsável</strong>
+        <span>Discutimos com os alunos o impacto do lixo no mar, o uso consciente de recursos e como pequenas escolhas do dia a dia fazem diferença.</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>A praia como sala de aula</h2>
+
+  <p>Projetos como o Ecosurf, que também nasceu em Itanhaém, mostram que a praia pode ser um espaço pedagógico poderoso. Ao longo de mais de 25 anos, o instituto promoveu mais de 750 palestras de conservação ambiental, envolveu mais de 20 mil voluntários em campanhas de despoluição e impactou mais de 5 mil estudantes com aulas de educação ambiental.</p>
+
+  <p>Esse legado nos inspira e nos lembra que somos parte de uma corrente maior. O Soul Surf se soma a esse movimento com a certeza de que cada criança que aprende a amar o mar é uma criança a mais que vai querer protegê-lo.</p>
+
+  <div class="callout">
+    Sendo povos do mar, os surfistas devem compactuar na busca incessante pela preservação das praias e do oceano ao redor do nosso planeta.
+    <br><small style="opacity:.7;font-style:normal;font-size:.75rem;">— Carta das Responsabilidades dos Surfistas, Ecosurf</small>
+  </div>
+
+  <h2>Itanhaém e o futuro que queremos construir</h2>
+
+  <p>Itanhaém tem praias únicas, uma costa rica em biodiversidade e uma comunidade de surf vibrante. Mas tem também crianças que nunca tiveram contato com o mar, que vivem a poucos quilômetros de um dos recursos naturais mais importantes do planeta sem acesso a ele.</p>
+
+  <p>O Soul Surf existe para fechar essa distância. Para que cada jovem de Itanhaém não apenas surfe, mas entenda que é parte do oceano — e que proteger o mar é proteger a si mesmo.</p>
+
+  <div class="cta-box">
+    <h3>Ajude a preservar o mar e as vidas</h3>
+    <p>Apoie o Soul Surf e fortaleça nossa frente de meio ambiente e cidadania.</p>
+    <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy" target="_blank">Quero Apoiar o Soul Surf</a>
+  </div>
+
+</main>
+
+<div class="back">
+  <a href="../index.html#blog">← Voltar para o Blog</a>
+</div>
+<br>
+
+</body>
+</html>

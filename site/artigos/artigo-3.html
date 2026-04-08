@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ✏️ MUDE AQUI: título da aba do navegador -->
-  <title>Campanha da água: o que já avançou · Soul Surf</title>
+  <title>Do morro pro mar: como o surf reconstrói futuros · Soul Surf</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
@@ -15,56 +14,23 @@
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
     h1, h2, h3 { font-family: 'Glegoo', serif; }
-
-    .art-header {
-      background: #0a1628;
-      padding: max(16px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) 16px max(24px, env(safe-area-inset-left));
-      display: flex; align-items: center; gap: 16px;
-    }
-    .art-header a {
-      color: rgba(255,255,255,.65); font-size: 14px; font-weight: 500;
-      display: flex; align-items: center; gap: 6px; transition: color .2s;
-    }
+    .art-header { background: #0a1628; padding: max(16px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) 16px max(24px, env(safe-area-inset-left)); display: flex; align-items: center; gap: 16px; }
+    .art-header a { color: rgba(255,255,255,.65); font-size: 14px; font-weight: 500; transition: color .2s; }
     .art-header a:hover { color: #fff; }
     .art-header-brand { color: #fff; font-weight: 700; font-size: 16px; margin-left: auto; }
     .art-header-sep { color: rgba(255,255,255,.2); }
-
-    .art-hero {
-      width: 100%; height: 420px; object-fit: cover; display: block;
-    }
-
-    .art-body {
-      max-width: 760px; margin: 0 auto; padding: 56px max(24px, env(safe-area-inset-right)) calc(96px + env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
-    }
-    .art-meta {
-      display: inline-block;
-      font-size: 11px; font-weight: 700; letter-spacing: .14em;
-      text-transform: uppercase; color: #0073A8; margin-bottom: 18px;
-    }
-    .art-title {
-      font-size: clamp(28px, 5vw, 48px);
-      line-height: 1.2; color: #0a1628; margin-bottom: 28px;
-    }
+    .art-hero { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .art-body { max-width: 760px; margin: 0 auto; padding: 56px max(24px, env(safe-area-inset-right)) calc(96px + env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
+    .art-meta { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #0073A8; margin-bottom: 18px; }
+    .art-title { font-size: clamp(28px, 5vw, 48px); line-height: 1.2; color: #0a1628; margin-bottom: 28px; }
     .art-body p { font-size: 17px; line-height: 1.88; color: #555; margin-bottom: 24px; }
     .art-body h2 { font-size: 26px; color: #0a1628; margin: 40px 0 16px; }
-    .art-body h3 { font-size: 20px; color: #0a1628; margin: 32px 0 12px; }
     .art-body img { width: 100%; border-radius: 16px; margin: 36px 0; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
-    .art-body blockquote {
-      border-left: 4px solid #0073A8; margin: 32px 0;
-      padding: 16px 24px; background: #f0f7ff; border-radius: 0 12px 12px 0;
-      font-style: italic; color: #444; font-size: 17px; line-height: 1.72;
-    }
-    .art-body ul, .art-body ol { padding-left: 24px; margin-bottom: 24px; }
+    .art-body blockquote { border-left: 4px solid #0073A8; margin: 32px 0; padding: 16px 24px; background: #f0f7ff; border-radius: 0 12px 12px 0; font-style: italic; color: #444; font-size: 17px; line-height: 1.72; }
+    .art-body ul { padding-left: 24px; margin-bottom: 24px; }
     .art-body li { font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 8px; }
-
-    .art-back {
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-top: 56px; padding: 14px 28px; border-radius: 50px;
-      background: #0073A8; color: #fff;
-      font-weight: 700; font-size: 15px; transition: background .25s;
-    }
+    .art-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 56px; padding: 14px 28px; border-radius: 50px; background: #0073A8; color: #fff; font-weight: 700; font-size: 15px; transition: background .25s; }
     .art-back:hover { background: #005a84; }
-
     @media (max-width: 600px) {
       .art-header { flex-wrap: wrap; row-gap: 10px; }
       .art-header-sep { display: none; }
@@ -79,63 +45,80 @@
 <body>
 
   <header class="art-header">
-    <a href="../index.html">← Voltar ao site</a>
+    <a href="../index.html">&#8592; Voltar ao site</a>
     <span class="art-header-sep">|</span>
     <a href="../index.html#blog">Blog</a>
     <span class="art-header-brand">Soul Surf</span>
   </header>
 
-  <!-- ✏️ FOTO DO ARTIGO -->
   <img class="art-hero"
-      src="../fotos/IMG_4654.JPG"
-       alt="Campanha para instalação de água doce no projeto" />
+       src="../fotos/do-morro-pro-mar.jpg"
+       alt="Jovens do Soul Surf chegando ao mar" />
 
   <article class="art-body">
 
-    <span class="art-meta">10 Fev 2026 · Campanha</span>
+    <span class="art-meta">30 Abr 2026 · Inclusão Social</span>
+    <h1 class="art-title">Do morro pro mar: como o surf reconstrói futuros em comunidades vulneráveis</h1>
 
-    <h1 class="art-title">Campanha da água: o que já avançou</h1>
+    <p>Existe uma distância invisível entre muitas comunidades brasileiras e o mar. Mesmo em cidades litorâneas como Itanhaém, crianças de bairros periféricos crescem sem acesso às praias — seja por falta de transporte, recursos, ou simplesmente por nunca ter tido alguém que as levasse até lá.</p>
 
-    <p>
-      A campanha "Precisamos de água doce também" segue mobilizando a comunidade em torno de uma necessidade básica e urgente: garantir banho digno para as crianças e adolescentes depois das atividades no mar.
-    </p>
+    <p>O Soul Surf existe para romper essa distância. E junto com ela, para transformar o que o surf pode fazer na vida de um jovem em situação de vulnerabilidade.</p>
 
-    <p>
-      O Projeto Água nasceu da realidade diária do Soul Surf. Após os treinos, os jovens ainda não contam com a estrutura ideal para higiene e recuperação. Por isso, a instalação de um poço artesiano se tornou prioridade para saúde, dignidade e continuidade das ações.
-    </p>
+    <h2>O esporte como ferramenta de inclusão</h2>
 
-    <h2>O que já foi feito</h2>
+    <p>No Brasil, projetos sociais baseados no surf têm demonstrado resultados expressivos há décadas. O Projeto Ondas, fundado pelo bicampeão brasileiro Jojó de Olivença em Guarujá, atende jovens em vulnerabilidade desde 2007 e já impactou mais de 700 crianças, combinando esporte, reforço escolar, inclusão digital e acompanhamento psicossocial. Em 2006, o Surfecades iniciou em comunidades do Rio de Janeiro e já formou mais de 1.000 alunos no universo do surf.</p>
 
-    <p>
-      Com a campanha ativa na Benfeitoria, o projeto avançou na mobilização de apoiadores, divulgação local e organização das etapas técnicas necessárias para tirar o poço do papel. Cada contribuição vem ajudando a transformar uma necessidade antiga em solução concreta.
-    </p>
-
-    <blockquote>
-      "Com sua ajuda, a água chega - e com ela chega mais cuidado, saúde e dignidade para quem participa do Soul Surf."
-    </blockquote>
-
-    <h2>Próximos passos</h2>
-
-    <p>
-      Os próximos passos incluem concluir as fases de instalação da estrutura de captação e distribuição da água no espaço do projeto. A meta é que os jovens tenham, ao final de cada treino, um ambiente adequado para banho e acolhimento.
-    </p>
+    <p>Esses números não são coincidência. O surf possui uma combinação única de fatores que o torna especialmente eficaz como ferramenta de inclusão social:</p>
 
     <ul>
-      <li>Perfuração e estruturação do poço artesiano.</li>
-      <li>Instalação dos sistemas essenciais de bombeamento e distribuição.</li>
-      <li>Adequação final do espaço para uso diário dos participantes.</li>
+      <li><strong>Pertencimento:</strong> o mar pertence a todos. No surf, não há endereço ou classe social — há apenas a onda.</li>
+      <li><strong>Foco e rotina:</strong> a regularidade dos treinos cria estrutura e disciplina na vida do jovem.</li>
+      <li><strong>Vínculos:</strong> o ambiente do projeto cria amizades, referências e uma rede de apoio afetivo.</li>
+      <li><strong>Perspectiva de futuro:</strong> do surf para o esporte, do esporte para a educação, da educação para o trabalho.</li>
     </ul>
 
-    <p>
-      Para contribuir com a campanha, acesse:
-      <a href="https://benfeitoria.com/projeto/projeto-social-soul-surf-10zy"
-         target="_blank" rel="noopener noreferrer"
-         style="color:#0073A8; font-weight:600;">
-        Doe agora via Benfeitoria
-      </a>
-    </p>
+    <h2>O que diferencia o Soul Surf</h2>
 
-    <a class="art-back" href="../index.html#blog">← Voltar para o Blog</a>
+    <p>Fundada em setembro de 2021, a Associação de Surf Cibratel — Projeto Social Soul Surf nasceu com a proposta de ir além do esporte. Nossa abordagem integra três frentes que se complementam e formam um jovem completo:</p>
+
+    <h2>Do Morro Pro Mar — Esporte</h2>
+
+    <p>Nossa principal frente de inclusão leva crianças de bairros distantes de Itanhaém para a praia, oferecendo aulas de surf em ambiente seguro, acolhedor e com equipamentos adequados. Para muitas delas, é a primeira vez que entram no mar com orientação profissional.</p>
+
+    <h2>Soul Surf Digitais — Educação</h2>
+
+    <p>Além das ondas, preparamos os jovens para o mercado de trabalho com cursos de informática básica, programação e habilidades digitais. No Brasil, a exclusão digital ainda é uma barreira enorme para populações vulneráveis — e queremos ser parte da solução.</p>
+
+    <h2>Cultura e Meio Ambiente — Cidadania</h2>
+
+    <p>Formação cidadã com consciência ambiental, ações culturais e educação oceânica. Nossos alunos aprendem a se reconhecer como parte do mundo e a se responsabilizar por ele.</p>
+
+    <h2>O impacto que vai além da água</h2>
+
+    <p>Estudos sobre projetos similares no Brasil mostram que jovens que participam de programas de surf social apresentam resultados concretos:</p>
+
+    <ul>
+      <li>Melhora no desempenho e frequência escolar.</li>
+      <li>Maior autoestima e confiança.</li>
+      <li>Redução de comportamentos de risco.</li>
+      <li>Vínculos mais fortes com a família e a comunidade.</li>
+    </ul>
+
+    <blockquote>O João ficou no projeto durante 3 anos. O comportamento dele só melhorou, tanto na escola quanto em casa. Ele é mais responsável e ativo.<br>— Mãe de ex-aluno do Projeto Ondas, Guarujá/SP</blockquote>
+
+    <p>No Soul Surf, ouvimos relatos como esse a cada temporada. Crianças que chegaram fechadas e desconfiadas se abriram. Adolescentes que não viam sentido na escola passaram a se dedicar. Jovens que jamais tinham entrado no mar descobriram um lugar onde pertencem.</p>
+
+    <blockquote>Do mar pra vida não é só uma frase: é o caminho que queremos construir, onda por onda, junto com cada criança.<br>— Projeto Social Soul Surf</blockquote>
+
+    <h2>Como você pode fazer parte disso</h2>
+
+    <p>Um projeto social não existe apenas pelos seus fundadores ou educadores. Existe porque pessoas e empresas acreditam que o esporte pode mudar vidas — e decidem apostar nisso.</p>
+
+    <p>Atualmente, o Soul Surf precisa de pranchas e equipamentos de segurança para ampliar as aulas, computadores para o Soul Surf Digitais, e apoio financeiro para a instalação de um poço artesiano que garanta água doce para banho após os treinos — dignidade básica para cada criança que passa pelo projeto.</p>
+
+    <p>Cada doação, cada prancha, cada computador representa uma criança a mais com acesso a um futuro diferente. E isso não tem preço.</p>
+
+    <a class="art-back" href="../index.html#blog">&#8592; Voltar para o Blog</a>
 
   </article>
 
