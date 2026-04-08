@@ -186,25 +186,33 @@ function setupNavbar() {
     const isMobile = window.matchMedia('(max-width: 1280px)').matches;
 
     if (isMobile) {
-      if (navLinks) navLinks.style.display = 'none';
-      if (navCta) navCta.style.display = 'none';
-      hamburger.style.display = 'flex';
+      if (navLinks) navLinks.style.setProperty('display', 'none', 'important');
+      if (navCta) navCta.style.setProperty('display', 'none', 'important');
+      hamburger.style.setProperty('display', 'flex', 'important');
       hamburger.style.width = '42px';
       hamburger.style.height = '42px';
       hamburger.style.padding = '8px';
       hamburger.style.flexShrink = '0';
+      mobileMenu.style.flexDirection = 'column';
+      mobileMenu.style.top = '72px';
       if (!hamburger.classList.contains('open')) {
         mobileMenu.classList.remove('open');
+        mobileMenu.style.setProperty('display', 'none', 'important');
         hamburger.setAttribute('aria-expanded', 'false');
+      } else {
+        mobileMenu.style.setProperty('display', 'flex', 'important');
       }
     } else {
-      if (navLinks) navLinks.style.display = '';
-      if (navCta) navCta.style.display = '';
-      hamburger.style.display = '';
+      if (navLinks) navLinks.style.removeProperty('display');
+      if (navCta) navCta.style.removeProperty('display');
+      hamburger.style.removeProperty('display');
       hamburger.style.width = '';
       hamburger.style.height = '';
       hamburger.style.padding = '';
       hamburger.style.flexShrink = '';
+      mobileMenu.style.removeProperty('display');
+      mobileMenu.style.removeProperty('flex-direction');
+      mobileMenu.style.removeProperty('top');
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
@@ -227,6 +235,7 @@ function setupNavbar() {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
+    mobileMenu.style.setProperty('display', mobileMenu.classList.contains('open') ? 'flex' : 'none', 'important');
     hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
   });
 }
@@ -237,6 +246,7 @@ function closeMobileMenu() {
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.classList.remove('open');
   mobileMenu.classList.remove('open');
+  mobileMenu.style.setProperty('display', 'none', 'important');
   hamburger.setAttribute('aria-expanded', 'false');
 }
 
