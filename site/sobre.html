@@ -30,22 +30,35 @@
     .content-section h2 { font-size: 42px; color: var(--bg-dark); margin-bottom: 28px; }
     .content-section p { color: var(--text-light); font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
 
-    .history-timeline {
-      margin: 60px 0; padding: 40px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .history-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin: 48px 0 0;
     }
-    .timeline-item {
-      display: flex; gap: 40px; margin-bottom: 48px;
-      padding-bottom: 48px; border-bottom: 1px solid var(--border);
+    .pillar-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
     }
-    .timeline-item:last-child { border-bottom: none; }
-    .timeline-year {
-      min-width: 100px; font-size: 32px; font-weight: 800;
+    .pillar-number {
+      font-size: 34px;
+      font-weight: 800;
       color: var(--blue);
+      line-height: 1;
+      margin-bottom: 10px;
     }
-    .timeline-content h3 { color: var(--bg-dark); margin-bottom: 12px; font-size: 22px; }
-    .timeline-content p { color: var(--text-light); line-height: 1.7; }
+    .pillar-card h3 {
+      color: var(--bg-dark);
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+    .pillar-card p {
+      color: var(--text-light);
+      line-height: 1.7;
+      margin: 0;
+    }
 
     .values-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -87,8 +100,8 @@
       .page-hero { padding: 40px 0; }
       .page-hero h1 { font-size: 32px; }
       .content-section h2 { font-size: 28px; }
-      .timeline-item { flex-direction: column; gap: 0; }
-      .timeline-year { font-size: 24px; margin-bottom: 12px; }
+      .history-pillars { grid-template-columns: 1fr; }
+      .pillar-number { font-size: 28px; }
       .value-card { border-left-width: 3px; }
     }
   </style>
@@ -119,38 +132,30 @@
           Acreditamos que o oceano é mais que um espaço de lazer — é uma escola de vida que ensina respeito, coragem e superação.
         </p>
 
-        <div class="history-timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2021</div>
-            <div class="timeline-content">
-              <h3>Fundação do Projeto</h3>
-              <p>Lançamento oficial do Projeto Social Soul Surf com as primeiras aulas de surf em Itanhaém/SP, atendendo famílias em situação de vulnerabilidade.</p>
-            </div>
-          </div>
+        <div class="history-pillars">
+          <article class="pillar-card">
+            <div class="pillar-number">1</div>
+            <h3>Desporto Educacional</h3>
+            <p>Aulas de surf, skate e preparação física em projetos como Pega Esta Onda, Surf Adaptado e Do Morro para o Mar.</p>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-year">2022</div>
-            <div class="timeline-content">
-              <h3>Expansão das Atividades</h3>
-              <p>Início do programa de educação e reforço escolar. Ampliação do número de aulas e consolidação da equipe de voluntários.</p>
-            </div>
-          </div>
+          <article class="pillar-card">
+            <div class="pillar-number">2</div>
+            <h3>Desporto de Rendimento</h3>
+            <p>Treinamento de atletas para competições de surf, visando o desenvolvimento de rendimento e a profissionalização.</p>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-year">2023</div>
-            <div class="timeline-content">
-              <h3>Soul Surf Digitais</h3>
-              <p>Lançamento da iniciativa de tecnologia digital, preparando jovens para o mercado de trabalho com cursos de informática e programação.</p>
-            </div>
-          </div>
+          <article class="pillar-card">
+            <div class="pillar-number">3</div>
+            <h3>Formação para a Vida</h3>
+            <p>Oficinas de informática, inglês, educação ambiental e outros temas voltados ao desenvolvimento integral dos alunos.</p>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-year">2024</div>
-            <div class="timeline-content">
-              <h3>Campanha de Infraestrutura</h3>
-              <p>Campanha por água doce e estrutura física. Crescimento para 200+ jovens atendidos e consolidação de 3 frentes de atuação.</p>
-            </div>
-          </div>
+          <article class="pillar-card">
+            <div class="pillar-number">4</div>
+            <h3>Ações Transversais</h3>
+            <p>Palestras e oficinas sobre temas como educação financeira, combate às drogas e fortalecimento de vínculos e garantias de direitos.</p>
+          </article>
         </div>
       </div>
     </section>
