@@ -48,7 +48,6 @@ function loadSharedHeader() {
             <li><a href="${urls.about}">Sobre</a></li>
             <li><a href="${urls.initiatives}">Iniciativas</a></li>
             <li><a href="${urls.support}">Apoie</a></li>
-            <li><a href="${urls.gallery}">Galeria</a></li>
             <li><a href="${urls.transparency}">Transparência</a></li>
             <li><a href="${urls.contact}">Contato</a></li>
           </ul>
@@ -69,7 +68,6 @@ function loadSharedHeader() {
       <a href="${urls.about}" onclick="closeMobileMenu()">Sobre</a>
       <a href="${urls.initiatives}" onclick="closeMobileMenu()">Iniciativas</a>
       <a href="${urls.support}" onclick="closeMobileMenu()">Apoie</a>
-      <a href="${urls.gallery}" onclick="closeMobileMenu()">Galeria</a>
       <a href="${urls.transparency}" onclick="closeMobileMenu()">Transparência</a>
       <a href="${urls.contact}" onclick="closeMobileMenu()">Contato</a>
     </div>
