@@ -405,21 +405,24 @@
   <script type="module" src="js/shared.js"></script>
 
   <script>
-    // Formulário de contato
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Simulação de envio (substitua por sua lógica real)
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData);
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const phone   = document.getElementById('phone').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
 
-      // Aqui você pode enviar os dados para seu backend
-      console.log('Dados do formulário:', data);
+      let text = `Olá! Meu nome é ${name}.`;
+      if (subject) text += `\n*Assunto:* ${subject}`;
+      text += `\n*Mensagem:* ${message}`;
+      if (email) text += `\n*E-mail:* ${email}`;
+      if (phone) text += `\n*Telefone:* ${phone}`;
 
-      // Feedback para o usuário
-      alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+      const url = `https://api.whatsapp.com/send/?phone=5511930003945&text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
 
-      // Limpar formulário
       this.reset();
     });
   </script>
